@@ -1,0 +1,14 @@
+{application, ja_erl_utils,
+ [{description, "An OTP library, containing various utility functions for Erlang"},
+  {vsn, git},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.

@@ -1,0 +1,6 @@
+.rebar3
+_*
+erl_crash.dump
+rebar3.crashdump
+recompile.log
+.vscode
