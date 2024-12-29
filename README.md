@@ -1,7 +1,7 @@
 # ja_erl_utils
 
 An OTP library, containing various utility functions for Erlang.
-To read more about the application, please, visit its [documentation page](./doc/index.html).
+To read more about the application, please, visit its [documentation page](https://raw.githack.com/Juliusan/ja_erl_utils/master/doc/index.html).
 
 ## Build
 
