@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Module ja_erl_utils_file</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module ja_erl_utils_file</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#read_file-1">read_file/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#read_line_groups-3">read_line_groups/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#read_line_groups_no_new_line-3">read_line_groups_no_new_line/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#read_lines-1">read_lines/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#read_lines_no_new_line-1">read_lines_no_new_line/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#read_lines_no_new_line_to_elems-2">read_lines_no_new_line_to_elems/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#read_lines_no_new_line_to_elems-3">read_lines_no_new_line_to_elems/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#read_lines_to_elems-2">read_lines_to_elems/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#read_lines_to_elems-3">read_lines_to_elems/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#read_only_line-1">read_only_line/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#read_only_line_no_new_line-1">read_only_line_no_new_line/1</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="read_file-1">read_file/1</a></h3>
+<div class="spec">
+<p><code>read_file(FileName::string()) -&gt; Contents::string()</code><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="read_line_groups-3">read_line_groups/3</a></h3>
+<div class="spec">
+<p><code>read_line_groups(FileName::string(), GroupToElemFun::fun((Lines::[string()]) -&gt; GroupType), Separator::string()) -&gt; [GroupType]</code>
+<ul class="definitions"><li><code>GroupType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="read_line_groups_no_new_line-3">read_line_groups_no_new_line/3</a></h3>
+<div class="spec">
+<p><code>read_line_groups_no_new_line(FileName::string(), GroupToElemFun::fun((Lines::[string()]) -&gt; GroupType), Separator::string()) -&gt; [GroupType]</code>
+<ul class="definitions"><li><code>GroupType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="read_lines-1">read_lines/1</a></h3>
+<div class="spec">
+<p><code>read_lines(FileName::string()) -&gt; [Line::string()]</code><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="read_lines_no_new_line-1">read_lines_no_new_line/1</a></h3>
+<div class="spec">
+<p><code>read_lines_no_new_line(FileName::string()) -&gt; [Line::string()]</code><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="read_lines_no_new_line_to_elems-2">read_lines_no_new_line_to_elems/2</a></h3>
+<div class="spec">
+<p><code>read_lines_no_new_line_to_elems(FileName::string(), LineToElemFun::fun((Line::string()) -&gt; ElemType)) -&gt; [ElemType]</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="read_lines_no_new_line_to_elems-3">read_lines_no_new_line_to_elems/3</a></h3>
+<div class="spec">
+<p><code>read_lines_no_new_line_to_elems(FileName::string(), LineToElemFuns::[fun((Line::string()) -&gt; ElemType)], Separator::string()) -&gt; [[ElemType]]</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="read_lines_to_elems-2">read_lines_to_elems/2</a></h3>
+<div class="spec">
+<p><code>read_lines_to_elems(FileName::string(), LineToElemFun::fun((Line::string()) -&gt; ElemType)) -&gt; [ElemType]</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="read_lines_to_elems-3">read_lines_to_elems/3</a></h3>
+<div class="spec">
+<p><code>read_lines_to_elems(FileName::string(), LineToElemFuns::[fun((Line::string()) -&gt; ElemType)], Separator::string()) -&gt; [[ElemType]]</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="read_only_line-1">read_only_line/1</a></h3>
+<div class="spec">
+<p><code>read_only_line(FileName::string()) -&gt; Line::string()</code><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="read_only_line_no_new_line-1">read_only_line_no_new_line/1</a></h3>
+<div class="spec">
+<p><code>read_only_line_no_new_line(FileName::string()) -&gt; Line::string()</code><br></p>
+<p> </p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc</i></p>
+</body>
+</html>

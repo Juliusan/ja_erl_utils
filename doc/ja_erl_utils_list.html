@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Module ja_erl_utils_list</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module ja_erl_utils_list</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#count_elems_sorted-2">count_elems_sorted/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#count_elems_start-1">count_elems_start/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#diagonals_b-1">diagonals_b/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#diagonals_f-1">diagonals_f/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#foldl_pairs-3">foldl_pairs/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#intersection-2">intersection/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#is_decreasing-2">is_decreasing/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#is_increasing-2">is_increasing/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#list_filter_count-2">list_filter_count/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#list_foldl_count-3">list_foldl_count/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#list_foldl_sum-3">list_foldl_sum/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#list_map_sum-2">list_map_sum/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#middle-1">middle/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#middle_single-1">middle_single/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#transpose-1">transpose/1</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="count_elems_sorted-2">count_elems_sorted/2</a></h3>
+<div class="spec">
+<p><code>count_elems_sorted(Elem::ElemType, List::[ElemType]) -&gt; {Count::integer(), Remaining::[ElemType]}</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="count_elems_start-1">count_elems_start/1</a></h3>
+<div class="spec">
+<p><code>count_elems_start(List::[ElemType]) -&gt; {Count::integer(), Remaining::[ElemType]}</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="diagonals_b-1">diagonals_b/1</a></h3>
+<div class="spec">
+<p><code>diagonals_b(ListOfLists::[List]) -&gt; ListOfLists::[List]</code>
+<ul class="definitions"><li><code>List = [term()]</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="diagonals_f-1">diagonals_f/1</a></h3>
+<div class="spec">
+<p><code>diagonals_f(ListOfLists::[List]) -&gt; ListOfLists::[List]</code>
+<ul class="definitions"><li><code>List = [term()]</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="foldl_pairs-3">foldl_pairs/3</a></h3>
+<div class="spec">
+<p><code>foldl_pairs(FoldFun::fun((Elem1::ElemType, Elem2::ElemType, Accumulator::AccType) -&gt; NewAccumulator::AccType), InitAccumulator::AccType, List::[ElemType]) -&gt; FinalAccumulator::AccType</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li><li><code>AccType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="intersection-2">intersection/2</a></h3>
+<div class="spec">
+<p><code>intersection(List1::[ElemType], List2::[ElemType]) -&gt; Intersection::[ElemType]</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="is_decreasing-2">is_decreasing/2</a></h3>
+<div class="spec">
+<p><code>is_decreasing(List::[number()], Diff::number()) -&gt; boolean()</code><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="is_increasing-2">is_increasing/2</a></h3>
+<div class="spec">
+<p><code>is_increasing(List::[number()], Diff::number()) -&gt; boolean()</code><br></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="list_filter_count-2">list_filter_count/2</a></h3>
+<div class="spec">
+<p><code>list_filter_count(FilterFun::fun((Elem::ElemType) -&gt; boolean()), List::[ElemType]) -&gt; Count::number()</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="list_foldl_count-3">list_foldl_count/3</a></h3>
+<div class="spec">
+<p><code>list_foldl_count(FoldFun::fun((Elem::ElemType, Accumulator::AccType) -&gt; {CountElement::boolean(), NewAccumulator::AccType}), InitAccumulator::AccType, List::[ElemType]) -&gt; {Count::number(), FinalAccumulator::AccType}</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li><li><code>AccType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="list_foldl_sum-3">list_foldl_sum/3</a></h3>
+<div class="spec">
+<p><code>list_foldl_sum(FoldFun::fun((Elem::ElemType, Accumulator::AccType) -&gt; {MapResult::number(), NewAccumulator::AccType}), InitAccumulator::AccType, List::[ElemType]) -&gt; {Sum::number(), FinalAccumulator::AccType}</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li><li><code>AccType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="list_map_sum-2">list_map_sum/2</a></h3>
+<div class="spec">
+<p><code>list_map_sum(MapFun::fun((Elem::ElemType) -&gt; MapResult::number()), List::[ElemType]) -&gt; Sum::number()</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="middle-1">middle/1</a></h3>
+<div class="spec">
+<p><code>middle(List::[ElemType]) -&gt; [ElemType]</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="middle_single-1">middle_single/1</a></h3>
+<div class="spec">
+<p><code>middle_single(List::[ElemType]) -&gt; ElemType</code>
+<ul class="definitions"><li><code>ElemType = term()</code></li></ul></p>
+<p> </p>
+</div>
+
+<h3 class="function"><a name="transpose-1">transpose/1</a></h3>
+<div class="spec">
+<p><code>transpose(ListOfLists::[List]) -&gt; ListOfLists::[List]</code>
+<ul class="definitions"><li><code>List = [term()]</code></li></ul></p>
+<p> </p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc</i></p>
+</body>
+</html>
