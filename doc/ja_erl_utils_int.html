@@ -1,81 +1,465 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Module ja_erl_utils_int</title>
-<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
-</head>
-<body bgcolor="white">
-<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
-<hr>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.0">
+    <meta name="project" content="ja_erl_utils v0.0.0+build.5.ref6560f5c">
 
-<h1>Module ja_erl_utils_int</h1>
-<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+    <title>ja_erl_utils_int — ja_erl_utils v0.0.0+build.5.ref6560f5c</title>
+    <link rel="stylesheet" href="dist/html-erlang-4XYKNH4U.css" />
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-X7YVL3G2.js"></script>
+    <script src="dist/sidebar_items-BDA11B8B.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/html-XN2TSG4M.js"></script>
 
 
-<h2><a name="index">Function Index</a></h2>
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#concat_integers-2">concat_integers/2</a></td><td></td></tr>
-<tr><td valign="top"><a href="#euclidean_div-2">euclidean_div/2</a></td><td></td></tr>
-<tr><td valign="top"><a href="#euclidean_rem-2">euclidean_rem/2</a></td><td></td></tr>
-<tr><td valign="top"><a href="#integer_10_pow-1">integer_10_pow/1</a></td><td></td></tr>
-<tr><td valign="top"><a href="#integer_digit_count-1">integer_digit_count/1</a></td><td></td></tr>
-<tr><td valign="top"><a href="#solve_one_equation_int-1">solve_one_equation_int/1</a></td><td></td></tr>
-<tr><td valign="top"><a href="#solve_two_equations_int-2">solve_two_equations_int/2</a></td><td></td></tr>
-<tr><td valign="top"><a href="#split_integer-2">split_integer/2</a></td><td></td></tr>
-</table>
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
 
-<h2><a name="functions">Function Details</a></h2>
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
 
-<h3 class="function"><a name="concat_integers-2">concat_integers/2</a></h3>
-<div class="spec">
-<p><code>concat_integers(Int1::integer(), Int2::integer()) -&gt; integer()</code><br></p>
-<p> </p>
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+    <div class="sidebar-projectDetails">
+      <a href="https://github.com/Juliusan/ja_erl_utils" class="sidebar-projectName" translate="no">
+ja_erl_utils
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.0.0+build.5.ref6560f5c
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+    <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_int.erl#L1" title="View Source" class="view-source" rel="help">
+      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+      <span class="sr-only">View Source</span>
+    </a>
+
+  <span translate="no">ja_erl_utils_int</span> 
+  <small class="app-vsn" translate="no">(ja_erl_utils v0.0.0+build.5.ref6560f5c)</small>
+
+</h1>
+
+
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+      Summary
+    </h1>
+
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#concat_integers/2" translate="no">concat_integers(Int1, Int2)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#euclidean_div/2" translate="no">euclidean_div(A, B)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#euclidean_rem/2" translate="no">euclidean_rem(A, B)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#integer_10_pow/1" translate="no">integer_10_pow(Power)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#integer_digit_count/1" translate="no">integer_digit_count(Int)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#solve_one_equation_int/1" translate="no">solve_one_equation_int(_)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#solve_two_equations_int/2" translate="no">solve_two_equations_int(_, _)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#split_integer/2" translate="no">split_integer(Int, Split)</a>
+
+        </div>
+
+      </div>
+
+  </div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+Functions
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="concat_integers/2">
+
+  <div class="detail-header">
+    <a href="#concat_integers/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">concat_integers(Int1, Int2)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_int.erl#L45" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> concat_integers(integer(), integer()) -> integer().</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="euclidean_div/2">
+
+  <div class="detail-header">
+    <a href="#euclidean_div/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">euclidean_div(A, B)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_int.erl#L75" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> euclidean_div(A :: integer(), B :: integer()) -> integer().</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="euclidean_rem/2">
+
+  <div class="detail-header">
+    <a href="#euclidean_rem/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">euclidean_rem(A, B)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_int.erl#L90" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> euclidean_rem(A :: integer(), B :: integer()) -> integer().</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="integer_10_pow/1">
+
+  <div class="detail-header">
+    <a href="#integer_10_pow/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">integer_10_pow(Power)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_int.erl#L35" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> integer_10_pow(integer()) -> integer().</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="integer_digit_count/1">
+
+  <div class="detail-header">
+    <a href="#integer_digit_count/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">integer_digit_count(Int)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_int.erl#L19" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> integer_digit_count(integer()) -> integer().</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="solve_one_equation_int/1">
+
+  <div class="detail-header">
+    <a href="#solve_one_equation_int/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">solve_one_equation_int(_)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_int.erl#L106" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> solve_one_equation_int({A :: integer(), B :: integer()}) -> integer() | any | undefined.</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="solve_two_equations_int/2">
+
+  <div class="detail-header">
+    <a href="#solve_two_equations_int/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">solve_two_equations_int(_, _)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_int.erl#L133" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> solve_two_equations_int({A1 :: integer(), B1 :: integer(), C1 :: integer()},
+                        {A2 :: integer(), B2 :: integer(), C2 :: integer()}) ->
+                           {X :: integer() | any, Y :: integer() | any | string()} | undefined.</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="split_integer/2">
+
+  <div class="detail-header">
+    <a href="#split_integer/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">split_integer(Int, Split)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_int.erl#L62" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> split_integer(Int :: integer(), Split :: integer()) -> {integer(), integer()} | undefined.</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+      <footer class="footer">
+
+          <p>
+            On Hex.pm:
+
+            <span class="line">
+              <a href="https://hex.pm/packages/ja_erl_utils/0.0.0+build.5.ref6560f5c" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/ja_erl_utils/0.0.0+build.5.ref6560f5c" class="line">Preview</a>
+
+                <a href="https://preview.hex.pm/preview/ja_erl_utils/0.0.0+build.5.ref6560f5c/show/src/ja_erl_utils_int.erl">(current file)</a>
+
+            </span>
+
+            <button class="a-main line footer-button display-quick-switch">
+              Search
+            </button>
+          </p>
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.0) for the
+
+            <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
 </div>
 
-<h3 class="function"><a name="euclidean_div-2">euclidean_div/2</a></h3>
-<div class="spec">
-<p><code>euclidean_div(A::integer(), B::integer()) -&gt; integer()</code><br></p>
-<p> </p>
-</div>
 
-<h3 class="function"><a name="euclidean_rem-2">euclidean_rem/2</a></h3>
-<div class="spec">
-<p><code>euclidean_rem(A::integer(), B::integer()) -&gt; integer()</code><br></p>
-<p> </p>
-</div>
-
-<h3 class="function"><a name="integer_10_pow-1">integer_10_pow/1</a></h3>
-<div class="spec">
-<p><code>integer_10_pow(Power::integer()) -&gt; integer()</code><br></p>
-<p> </p>
-</div>
-
-<h3 class="function"><a name="integer_digit_count-1">integer_digit_count/1</a></h3>
-<div class="spec">
-<p><code>integer_digit_count(Int::integer()) -&gt; integer()</code><br></p>
-<p> </p>
-</div>
-
-<h3 class="function"><a name="solve_one_equation_int-1">solve_one_equation_int/1</a></h3>
-<div class="spec">
-<p><code>solve_one_equation_int(X1::{A::integer(), B::integer()}) -&gt; integer() | any | undefined</code><br></p>
-<p> </p>
-</div>
-
-<h3 class="function"><a name="solve_two_equations_int-2">solve_two_equations_int/2</a></h3>
-<div class="spec">
-<p><code>solve_two_equations_int(X1::{A1::integer(), B1::integer(), C1::integer()}, X2::{A2::integer(), B2::integer(), C2::integer()}) -&gt; {X::integer() | any, Y::integer() | any | string()} | undefined</code><br></p>
-<p> </p>
-</div>
-
-<h3 class="function"><a name="split_integer-2">split_integer/2</a></h3>
-<div class="spec">
-<p><code>split_integer(Int::integer(), Split::integer()) -&gt; {integer(), integer()} | undefined</code><br></p>
-<p> </p>
-</div>
-<hr>
-
-<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
-<p><i>Generated by EDoc</i></p>
-</body>
+  </body>
 </html>

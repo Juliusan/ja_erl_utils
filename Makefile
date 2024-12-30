@@ -13,7 +13,7 @@ run:
 	$(REBAR) as test shell --name "ja_erl_utils" --apps sync
 
 docs:
-	$(REBAR) as docs edoc
+	$(REBAR) as docs ex_doc
 
 
 .PHONY: all compile test run docs

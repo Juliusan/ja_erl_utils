@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.0">
+    <meta name="project" content="ja_erl_utils v0.0.0+build.5.ref6560f5c">
+
+    <title>Overview — ja_erl_utils v0.0.0+build.5.ref6560f5c</title>
+    <link rel="stylesheet" href="dist/html-erlang-4XYKNH4U.css" />
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-X7YVL3G2.js"></script>
+    <script src="dist/sidebar_items-BDA11B8B.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/html-XN2TSG4M.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+    <div class="sidebar-projectDetails">
+      <a href="https://github.com/Juliusan/ja_erl_utils" class="sidebar-projectName" translate="no">
+ja_erl_utils
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.0.0+build.5.ref6560f5c
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+    <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/README.md#L1" title="View Source" class="view-source" rel="help">
+      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+      <span class="sr-only">View Source</span>
+    </a>
+
+  <span>My Erlang utilities</span>
+</h1>
+
+<p>This is an OTP library, containing various utility functions for Erlang.
+It consists of some functions, which should ease code development.
+The functions are grouped into modules by their domains. These modules are available:</p><ul><li><a href="ja_erl_utils_bit.html"><code class="inline">ja_erl_utils_bit</code></a> contains functions for working with binary numbers.</li><li><a href="ja_erl_utils_console.html"><code class="inline">ja_erl_utils_console</code></a> contains functions for working with console output and input.</li><li><a href="ja_erl_utils_file.html"><code class="inline">ja_erl_utils_file</code></a> contains functions for reading and writing files.</li><li><a href="ja_erl_utils_int.html"><code class="inline">ja_erl_utils_int</code></a> contains functions for working integer numbers.</li><li><a href="ja_erl_utils_list.html"><code class="inline">ja_erl_utils_list</code></a> contains functions for working with lists.</li><li><a href="ja_erl_utils_map.html"><code class="inline">ja_erl_utils_map</code></a> contains functions for working with Erlang maps.</li><li><a href="ja_erl_utils_matrix.html"><code class="inline">ja_erl_utils_matrix</code></a> contains functions for working with two dimensional arrays (matrices).</li><li><a href="ja_erl_utils_string.html"><code class="inline">ja_erl_utils_string</code></a> contains functions for working with strings as well as parsing them.</li></ul><p>This library is heavily influenced by the needs, which arose while solving <a href="https://adventofcode.com/">Advent of Code</a> tasks.
+If you want to check out my solutions to at least some of them, you can visit <a href="https://github.com/Juliusan/adventofcode">my Advent of Code repository</a>.
+The <code class="inline">ja_erl_utils</code> library was created after Advent of Code 2024.</p><h2 id="using-source-code" class="section-heading">
+  <a href="#using-source-code" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">using-source-code</p>
+  </a>
+  Using source code
+</h2>
+<p>The library uses <code class="inline">make</code> to do its regular tasks.</p><p>To build <code class="inline">ja_erl_utils</code> use:</p><pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">make compile
+</span></code></pre><p>To run all the unit tests use:</p><pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">make test
+</span></code></pre><p>It is possible to run only some tests:</p><pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">make test EUNIT_ARGS=&quot;--module=ja_erl_utils_int_tests&quot;
+</span><span class="gp unselectable">$ </span><span class="">make test EUNIT_ARGS=&quot;--generator=ja_erl_utils_int_tests:solve_two_equations_int_test_&quot;
+</span></code></pre><p>For more details, see <code class="inline">rebar3</code> <a href="https://rebar3.org/docs/commands/#eunit">documentation</a>.</p><p>To generate documentation use:</p><pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">make docs
+</span></code></pre><p>To try out the functions in console use:</p><pre><code class="makeup shell" translate="no"><span class="gp unselectable">$ </span><span class="">make run
+</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="api-reference.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+API Reference
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+      <footer class="footer">
+
+          <p>
+            On Hex.pm:
+
+            <span class="line">
+              <a href="https://hex.pm/packages/ja_erl_utils/0.0.0+build.5.ref6560f5c" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/ja_erl_utils/0.0.0+build.5.ref6560f5c" class="line">Preview</a>
+
+                <a href="https://preview.hex.pm/preview/ja_erl_utils/0.0.0+build.5.ref6560f5c/show/README.md">(current file)</a>
+
+            </span>
+
+            <button class="a-main line footer-button display-quick-switch">
+              Search
+            </button>
+          </p>
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.0) for the
+
+            <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

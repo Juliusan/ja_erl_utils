@@ -1,5 +1,0 @@
-%% encoding: UTF-8
-{application,ja_erl_utils}.
-{modules,[ja_erl_utils,ja_erl_utils_bit,ja_erl_utils_console,
-          ja_erl_utils_file,ja_erl_utils_int,ja_erl_utils_list,
-          ja_erl_utils_map,ja_erl_utils_matrix,ja_erl_utils_string]}.
