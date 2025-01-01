@@ -12,6 +12,8 @@ The functions are grouped into modules by their domains. These modules are avail
 * `m:ja_erl_utils_matrix` contains functions for working with two dimensional arrays (matrices).
 * `m:ja_erl_utils_string` contains functions for working with strings as well as parsing them.
 
+You can read documentation committed to the repository [here](https://rawcdn.githack.com/Juliusan/ja_erl_utils/master/doc/index.html).
+
 This library is heavily influenced by the needs, which arose while solving [Advent of Code](https://adventofcode.com/) tasks.
 If you want to check out my solutions to at least some of them, you can visit [my Advent of Code repository](https://github.com/Juliusan/adventofcode).
 The `ja_erl_utils` library was created after Advent of Code 2024.
