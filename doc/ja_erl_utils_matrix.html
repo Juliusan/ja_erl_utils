@@ -4,20 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.0">
-    <meta name="project" content="ja_erl_utils v0.0.0+build.5.ref6560f5c">
+    <meta name="generator" content="ExDoc v0.35.1">
+    <meta name="project" content="ja_erl_utils v0.1.0">
 
-    <title>ja_erl_utils_matrix — ja_erl_utils v0.0.0+build.5.ref6560f5c</title>
-    <link rel="stylesheet" href="dist/html-erlang-4XYKNH4U.css" />
+
+    <title>ja_erl_utils_matrix — ja_erl_utils v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-erlang-4IXSOGMD.css" />
+
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-X7YVL3G2.js"></script>
-    <script src="dist/sidebar_items-BDA11B8B.js"></script>
-
-      <script src="docs_config.js"></script>
-
-    <script async src="dist/html-XN2TSG4M.js"></script>
-
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-9EC432AD.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-PVRIOB7F.js"></script>
 
   </head>
   <body data-type="modules" class="page-module">
@@ -35,212 +34,228 @@
       } catch (error) { }
     </script>
 
-<div class="main">
+<div class="body-wrapper">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
-    </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
-    </label>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
+<nav id="sidebar" class="sidebar">
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-    <div class="sidebar-projectDetails">
-      <a href="https://github.com/Juliusan/ja_erl_utils" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="https://github.com/Juliusan/ja_erl_utils" class="sidebar-projectName" translate="no">
 ja_erl_utils
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v0.0.0+build.5.ref6560f5c
-      </strong>
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.1.0
+        </div>
+      </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
-        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list" class="sidebar-fullList"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of ja_erl_utils</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+    <span translate="no">ja_erl_utils_matrix</span> 
+    <small class="app-vsn" translate="no">(ja_erl_utils v0.1.0)</small>
+
+  </h1>
 
 
-    <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L1" title="View Source" class="view-source" rel="help">
-      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-      <span class="sr-only">View Source</span>
-    </a>
-
-  <span translate="no">ja_erl_utils_matrix</span> 
-  <small class="app-vsn" translate="no">(ja_erl_utils v0.0.0+build.5.ref6560f5c)</small>
-
-</h1>
-
-
+</div>
 
   <section id="summary" class="details-list">
     <h1 class="section-heading">
       <a class="hover-link" href="#summary">
         <i class="ri-link-m" aria-hidden="true"></i>
-        <span class="sr-only">Link to this section</span>
       </a>
-      Summary
+      <span class="text">Summary</span>
     </h1>
+<div class="summary-types summary">
+  <h2>
+    <a href="#types">Types</a>
+  </h2>
 
-  <div class="summary-types summary">
-    <h2>
-      <a href="#types">Types</a>
-    </h2>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#t:matrix/1" translate="no">matrix/1</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:matrix/1" data-no-tooltip translate="no">matrix/1</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#t:matrix_direction/0" translate="no">matrix_direction/0</a>
+    </div>
 
-        </div>
-
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#t:matrix_index/0" translate="no">matrix_index/0</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:matrix_direction/0" data-no-tooltip translate="no">matrix_direction/0</a>
 
       </div>
 
-  </div>
+    </div>
 
-  <div class="summary-functions summary">
-    <h2>
-      <a href="#functions">Functions</a>
-    </h2>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#direction_all/0" translate="no">direction_all()</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:matrix_index/0" data-no-tooltip translate="no">matrix_index/0</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#direction_clockwise/1" translate="no">direction_clockwise(_)</a>
+    </div>
 
-        </div>
+</div>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
 
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#direction_counterclockwise/1" translate="no">direction_counterclockwise(_)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#direction_all/0" data-no-tooltip translate="no">direction_all()</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#direction_reverse/1" translate="no">direction_reverse(_)</a>
+    </div>
 
-        </div>
-
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#get_char_matrix/1" translate="no">get_char_matrix(Lines)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#direction_clockwise/1" data-no-tooltip translate="no">direction_clockwise(_)</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#get_new_matrix/2" translate="no">get_new_matrix(Elem, Dimensions)</a>
+    </div>
 
-        </div>
-
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#matrix_foldl/4" translate="no">matrix_foldl(FoldFun, AccIn, Matrix, Dimensions)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#direction_counterclockwise/1" data-no-tooltip translate="no">direction_counterclockwise(_)</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#matrix_index_of/2" translate="no">matrix_index_of(Elem, Matrix)</a>
+    </div>
 
-        </div>
-
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#matrix_is_valid_index/2" translate="no">matrix_is_valid_index(CurrentIndex, Dimensions)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#direction_reverse/1" data-no-tooltip translate="no">direction_reverse(_)</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#matrix_next_index/3" translate="no">matrix_next_index(CurrentIndex, Direction, Dimensions)</a>
+    </div>
 
-        </div>
-
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#print_char_matrix/2" translate="no">print_char_matrix(Matrix, Dimensions)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#get_char_matrix/1" data-no-tooltip translate="no">get_char_matrix(Lines)</a>
 
       </div>
 
-  </div>
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#get_new_matrix/2" data-no-tooltip translate="no">get_new_matrix(Elem, Dimensions)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#matrix_foldl/4" data-no-tooltip translate="no">matrix_foldl(FoldFun, AccIn, Matrix, Dimensions)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#matrix_index_of/2" data-no-tooltip translate="no">matrix_index_of(Elem, Matrix)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#matrix_is_valid_index/2" data-no-tooltip translate="no">matrix_is_valid_index(CurrentIndex, Dimensions)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#matrix_next_index/3" data-no-tooltip translate="no">matrix_next_index(CurrentIndex, Direction, Dimensions)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#print_char_matrix/2" data-no-tooltip translate="no">print_char_matrix(Matrix, Dimensions)</a>
+
+      </div>
+
+    </div>
+
+</div>
 
   </section>
 
@@ -249,23 +264,20 @@ ja_erl_utils
     <h1 class="section-heading">
       <a class="hover-link" href="#types">
         <i class="ri-link-m" aria-hidden="true"></i>
-        <span class="sr-only">Link to this section</span>
       </a>
-Types
+      <span class="text">Types</span>
     </h1>
     <div class="types-list">
 <section class="detail" id="t:matrix/1">
 
   <div class="detail-header">
-    <a href="#t:matrix/1" class="detail-link" title="Link to this type">
+    <a href="#t:matrix/1" class="detail-link" data-no-tooltip aria-label="Link to this type">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this type</span>
     </a>
     <h1 class="signature" translate="no">matrix/1</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L7" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L7" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -285,15 +297,13 @@ Types
 <section class="detail" id="t:matrix_direction/0">
 
   <div class="detail-header">
-    <a href="#t:matrix_direction/0" class="detail-link" title="Link to this type">
+    <a href="#t:matrix_direction/0" class="detail-link" data-no-tooltip aria-label="Link to this type">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this type</span>
     </a>
     <h1 class="signature" translate="no">matrix_direction/0</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L9" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L9" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -313,15 +323,13 @@ Types
 <section class="detail" id="t:matrix_index/0">
 
   <div class="detail-header">
-    <a href="#t:matrix_index/0" class="detail-link" title="Link to this type">
+    <a href="#t:matrix_index/0" class="detail-link" data-no-tooltip aria-label="Link to this type">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this type</span>
     </a>
     <h1 class="signature" translate="no">matrix_index/0</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L8" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L8" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -331,7 +339,7 @@ Types
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-type</span> matrix_index() :: {Row :: integer(), Column :: integer()}.</pre>
+          <pre translate="no"><span class="attribute">-type</span> matrix_index() :: {Row :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), Column :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()}.</pre>
 
       </div>
 
@@ -346,23 +354,20 @@ Types
     <h1 class="section-heading">
       <a class="hover-link" href="#functions">
         <i class="ri-link-m" aria-hidden="true"></i>
-        <span class="sr-only">Link to this section</span>
       </a>
-Functions
+      <span class="text">Functions</span>
     </h1>
     <div class="functions-list">
 <section class="detail" id="direction_all/0">
 
   <div class="detail-header">
-    <a href="#direction_all/0" class="detail-link" title="Link to this function">
+    <a href="#direction_all/0" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">direction_all()</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L174" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L174" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -382,15 +387,13 @@ Functions
 <section class="detail" id="direction_clockwise/1">
 
   <div class="detail-header">
-    <a href="#direction_clockwise/1" class="detail-link" title="Link to this function">
+    <a href="#direction_clockwise/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">direction_clockwise(_)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L193" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L193" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -410,15 +413,13 @@ Functions
 <section class="detail" id="direction_counterclockwise/1">
 
   <div class="detail-header">
-    <a href="#direction_counterclockwise/1" class="detail-link" title="Link to this function">
+    <a href="#direction_counterclockwise/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">direction_counterclockwise(_)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L204" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L204" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -438,15 +439,13 @@ Functions
 <section class="detail" id="direction_reverse/1">
 
   <div class="detail-header">
-    <a href="#direction_reverse/1" class="detail-link" title="Link to this function">
+    <a href="#direction_reverse/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">direction_reverse(_)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L182" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L182" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -466,15 +465,13 @@ Functions
 <section class="detail" id="get_char_matrix/1">
 
   <div class="detail-header">
-    <a href="#get_char_matrix/1" class="detail-link" title="Link to this function">
+    <a href="#get_char_matrix/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">get_char_matrix(Lines)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L60" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L60" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -484,7 +481,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> get_char_matrix([Line :: string()]) -> {Matrix :: <a href="#t:matrix/1">matrix</a>(char()), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()}.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> get_char_matrix([Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()]) -> {Matrix :: <a href="#t:matrix/1">matrix</a>(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:char/0">char</a>()), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()}.</pre>
 
       </div>
 
@@ -494,15 +491,13 @@ Functions
 <section class="detail" id="get_new_matrix/2">
 
   <div class="detail-header">
-    <a href="#get_new_matrix/2" class="detail-link" title="Link to this function">
+    <a href="#get_new_matrix/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">get_new_matrix(Elem, Dimensions)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L39" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L39" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -512,7 +507,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> get_new_matrix(Elem :: term(), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) -> Matrix :: <a href="#t:matrix/1">matrix</a>(term()).</pre>
+          <pre translate="no"><span class="attribute">-spec</span> get_new_matrix(Elem :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>(), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) -> Matrix :: <a href="#t:matrix/1">matrix</a>(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>()).</pre>
 
       </div>
 
@@ -522,15 +517,13 @@ Functions
 <section class="detail" id="matrix_foldl/4">
 
   <div class="detail-header">
-    <a href="#matrix_foldl/4" class="detail-link" title="Link to this function">
+    <a href="#matrix_foldl/4" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">matrix_foldl(FoldFun, AccIn, Matrix, Dimensions)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L160" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L160" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -541,13 +534,13 @@ Functions
       <div class="specs">
 
           <pre translate="no"><span class="attribute">-spec</span> matrix_foldl(FoldFun ::
-                 fun((Index :: <a href="#t:matrix_index/0">matrix_index</a>(), Elem :: ElemType, Accumulator :: AccType) ->
-                         NewAccumulator :: AccType),
-             AccIn :: AccType,
-             Matrix :: <a href="#t:matrix/1">matrix</a>(ElemType),
-             Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) ->
-                AccOut :: AccType
-                when ElemType :: term(), AccType :: term().</pre>
+                       fun((Index :: <a href="#t:matrix_index/0">matrix_index</a>(), Elem :: ElemType, Accumulator :: AccType) ->
+                               NewAccumulator :: AccType),
+                   AccIn :: AccType,
+                   Matrix :: <a href="#t:matrix/1">matrix</a>(ElemType),
+                   Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) ->
+                      AccOut :: AccType
+                      when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>(), AccType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
@@ -557,15 +550,13 @@ Functions
 <section class="detail" id="matrix_index_of/2">
 
   <div class="detail-header">
-    <a href="#matrix_index_of/2" class="detail-link" title="Link to this function">
+    <a href="#matrix_index_of/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">matrix_index_of(Elem, Matrix)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L85" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L85" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -576,7 +567,7 @@ Functions
       <div class="specs">
 
           <pre translate="no"><span class="attribute">-spec</span> matrix_index_of(Elem :: ElemType, Matrix :: <a href="#t:matrix/1">matrix</a>(ElemType)) -> <a href="#t:matrix_index/0">matrix_index</a>() | undefined
-                   when ElemType :: term().</pre>
+                         when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
@@ -586,15 +577,13 @@ Functions
 <section class="detail" id="matrix_is_valid_index/2">
 
   <div class="detail-header">
-    <a href="#matrix_is_valid_index/2" class="detail-link" title="Link to this function">
+    <a href="#matrix_is_valid_index/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">matrix_is_valid_index(CurrentIndex, Dimensions)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L106" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L106" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -604,7 +593,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> matrix_is_valid_index(CurrentIndex :: <a href="#t:matrix_index/0">matrix_index</a>(), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) -> boolean().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> matrix_is_valid_index(CurrentIndex :: <a href="#t:matrix_index/0">matrix_index</a>(), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:boolean/0">boolean</a>().</pre>
 
       </div>
 
@@ -614,15 +603,13 @@ Functions
 <section class="detail" id="matrix_next_index/3">
 
   <div class="detail-header">
-    <a href="#matrix_next_index/3" class="detail-link" title="Link to this function">
+    <a href="#matrix_next_index/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">matrix_next_index(CurrentIndex, Direction, Dimensions)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L125" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L125" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -633,9 +620,9 @@ Functions
       <div class="specs">
 
           <pre translate="no"><span class="attribute">-spec</span> matrix_next_index(CurrentIndex :: <a href="#t:matrix_index/0">matrix_index</a>(),
-                  Direction :: <a href="#t:matrix_direction/0">matrix_direction</a>(),
-                  Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) ->
-                     NextIndex :: <a href="#t:matrix_index/0">matrix_index</a>() | undefined.</pre>
+                        Direction :: <a href="#t:matrix_direction/0">matrix_direction</a>(),
+                        Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) ->
+                           NextIndex :: <a href="#t:matrix_index/0">matrix_index</a>() | undefined.</pre>
 
       </div>
 
@@ -645,15 +632,13 @@ Functions
 <section class="detail" id="print_char_matrix/2">
 
   <div class="detail-header">
-    <a href="#print_char_matrix/2" class="detail-link" title="Link to this function">
+    <a href="#print_char_matrix/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">print_char_matrix(Matrix, Dimensions)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_matrix.erl#L21" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_matrix.erl#L21" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -663,7 +648,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> print_char_matrix(Matrix :: <a href="#t:matrix/1">matrix</a>(term()), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) -> ok.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> print_char_matrix(Matrix :: <a href="#t:matrix/1">matrix</a>(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>()), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) -> ok.</pre>
 
       </div>
 
@@ -674,37 +659,40 @@ Functions
     </div>
   </section>
 
-      <footer class="footer">
+    <footer class="footer">
+      <p>
 
-          <p>
-            On Hex.pm:
+          <span class="line">
+            <a href="https://hex.pm/packages/ja_erl_utils/0.1.0" class="footer-hex-package">Hex Package</a>
 
-            <span class="line">
-              <a href="https://hex.pm/packages/ja_erl_utils/0.0.0+build.5.ref6560f5c" class="line footer-hex-package">Package</a>
-              <a href="https://preview.hex.pm/preview/ja_erl_utils/0.0.0+build.5.ref6560f5c" class="line">Preview</a>
+            <a href="https://preview.hex.pm/preview/ja_erl_utils/0.1.0">Hex Preview</a>
 
-                <a href="https://preview.hex.pm/preview/ja_erl_utils/0.0.0+build.5.ref6560f5c/show/src/ja_erl_utils_matrix.erl">(current file)</a>
+          </span>
 
-            </span>
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-            <button class="a-main line footer-button display-quick-switch">
-              Search
-            </button>
-          </p>
+            <a href="ja_erl_utils.epub" title="ePub version">
+              Download ePub version
+            </a>
 
-        <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.0) for the
+        </span>
+      </p>
 
-            <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.35.1) for the
 
-        </p>
-      </footer>
-    </div>
+          <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+      </p>
+
+    </footer>
   </div>
-</section>
+</main>
 </div>
-
 
   </body>
 </html>

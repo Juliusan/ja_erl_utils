@@ -4,20 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.0">
-    <meta name="project" content="ja_erl_utils v0.0.0+build.5.ref6560f5c">
+    <meta name="generator" content="ExDoc v0.35.1">
+    <meta name="project" content="ja_erl_utils v0.1.0">
 
-    <title>ja_erl_utils_file — ja_erl_utils v0.0.0+build.5.ref6560f5c</title>
-    <link rel="stylesheet" href="dist/html-erlang-4XYKNH4U.css" />
+
+    <title>ja_erl_utils_file — ja_erl_utils v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-erlang-4IXSOGMD.css" />
+
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-X7YVL3G2.js"></script>
-    <script src="dist/sidebar_items-BDA11B8B.js"></script>
-
-      <script src="docs_config.js"></script>
-
-    <script async src="dist/html-XN2TSG4M.js"></script>
-
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-9EC432AD.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-PVRIOB7F.js"></script>
 
   </head>
   <body data-type="modules" class="page-module">
@@ -35,181 +34,198 @@
       } catch (error) { }
     </script>
 
-<div class="main">
+<div class="body-wrapper">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
-    </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
-    </label>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
+<nav id="sidebar" class="sidebar">
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-    <div class="sidebar-projectDetails">
-      <a href="https://github.com/Juliusan/ja_erl_utils" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="https://github.com/Juliusan/ja_erl_utils" class="sidebar-projectName" translate="no">
 ja_erl_utils
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v0.0.0+build.5.ref6560f5c
-      </strong>
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.1.0
+        </div>
+      </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
-        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list" class="sidebar-fullList"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of ja_erl_utils</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+    <span translate="no">ja_erl_utils_file</span> 
+    <small class="app-vsn" translate="no">(ja_erl_utils v0.1.0)</small>
+
+  </h1>
 
 
-    <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L1" title="View Source" class="view-source" rel="help">
-      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-      <span class="sr-only">View Source</span>
-    </a>
-
-  <span translate="no">ja_erl_utils_file</span> 
-  <small class="app-vsn" translate="no">(ja_erl_utils v0.0.0+build.5.ref6560f5c)</small>
-
-</h1>
-
-
+</div>
 
   <section id="summary" class="details-list">
     <h1 class="section-heading">
       <a class="hover-link" href="#summary">
         <i class="ri-link-m" aria-hidden="true"></i>
-        <span class="sr-only">Link to this section</span>
       </a>
-      Summary
+      <span class="text">Summary</span>
     </h1>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
 
-  <div class="summary-functions summary">
-    <h2>
-      <a href="#functions">Functions</a>
-    </h2>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_file/1" translate="no">read_file(FileName)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_file/1" data-no-tooltip translate="no">read_file(FileName)</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_line_groups/3" translate="no">read_line_groups(FileName, GroupToElemFun, Separator)</a>
+    </div>
 
-        </div>
-
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_line_groups_no_new_line/3" translate="no">read_line_groups_no_new_line(FileName, GroupToElemFun, Separator)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_line_groups/3" data-no-tooltip translate="no">read_line_groups(FileName, GroupToElemFun, Separator)</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_lines/1" translate="no">read_lines(FileName)</a>
+    </div>
 
-        </div>
-
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_lines_no_new_line/1" translate="no">read_lines_no_new_line(FileName)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_line_groups_no_new_line/3" data-no-tooltip translate="no">read_line_groups_no_new_line(FileName, GroupToElemFun, Separator)</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_lines_no_new_line_to_elems/2" translate="no">read_lines_no_new_line_to_elems(FileName, LineToElemFun)</a>
+    </div>
 
-        </div>
-
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_lines_no_new_line_to_elems/3" translate="no">read_lines_no_new_line_to_elems(FileName, LineToElemFuns, Separator)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_lines/1" data-no-tooltip translate="no">read_lines(FileName)</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_lines_to_elems/2" translate="no">read_lines_to_elems(FileName, LineToElemFun)</a>
+    </div>
 
-        </div>
-
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_lines_to_elems/3" translate="no">read_lines_to_elems(FileName, LineToElemFuns, Separator)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_lines_no_new_line/1" data-no-tooltip translate="no">read_lines_no_new_line(FileName)</a>
 
       </div>
 
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_only_line/1" translate="no">read_only_line(FileName)</a>
+    </div>
 
-        </div>
-
-      </div>
-
-      <div class="summary-row">
-        <div class="summary-signature">
-          <a href="#read_only_line_no_new_line/1" translate="no">read_only_line_no_new_line(FileName)</a>
-
-        </div>
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_lines_no_new_line_to_elems/2" data-no-tooltip translate="no">read_lines_no_new_line_to_elems(FileName, LineToElemFun)</a>
 
       </div>
 
-  </div>
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_lines_no_new_line_to_elems/3" data-no-tooltip translate="no">read_lines_no_new_line_to_elems(FileName, LineToElemFuns, Separator)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_lines_to_elems/2" data-no-tooltip translate="no">read_lines_to_elems(FileName, LineToElemFun)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_lines_to_elems/3" data-no-tooltip translate="no">read_lines_to_elems(FileName, LineToElemFuns, Separator)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_only_line/1" data-no-tooltip translate="no">read_only_line(FileName)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#read_only_line_no_new_line/1" data-no-tooltip translate="no">read_only_line_no_new_line(FileName)</a>
+
+      </div>
+
+    </div>
+
+</div>
 
   </section>
 
@@ -218,23 +234,20 @@ ja_erl_utils
     <h1 class="section-heading">
       <a class="hover-link" href="#functions">
         <i class="ri-link-m" aria-hidden="true"></i>
-        <span class="sr-only">Link to this section</span>
       </a>
-Functions
+      <span class="text">Functions</span>
     </h1>
     <div class="functions-list">
 <section class="detail" id="read_file/1">
 
   <div class="detail-header">
-    <a href="#read_file/1" class="detail-link" title="Link to this function">
+    <a href="#read_file/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_file(FileName)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L25" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L25" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -244,7 +257,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_file(FileName :: string()) -> Contents :: string().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_file(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> Contents :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>().</pre>
 
       </div>
 
@@ -254,15 +267,13 @@ Functions
 <section class="detail" id="read_line_groups/3">
 
   <div class="detail-header">
-    <a href="#read_line_groups/3" class="detail-link" title="Link to this function">
+    <a href="#read_line_groups/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_line_groups(FileName, GroupToElemFun, Separator)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L191" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L191" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -272,11 +283,11 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_line_groups(FileName :: string(),
-                 GroupToElemFun :: fun((Lines :: [string()]) -> GroupType),
-                 Separator :: string()) ->
-                    [GroupType]
-                    when GroupType :: term().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_line_groups(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
+                       GroupToElemFun :: fun((Lines :: [<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()]) -> GroupType),
+                       Separator :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) ->
+                          [GroupType]
+                          when GroupType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
@@ -286,15 +297,13 @@ Functions
 <section class="detail" id="read_line_groups_no_new_line/3">
 
   <div class="detail-header">
-    <a href="#read_line_groups_no_new_line/3" class="detail-link" title="Link to this function">
+    <a href="#read_line_groups_no_new_line/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_line_groups_no_new_line(FileName, GroupToElemFun, Separator)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L220" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L220" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -304,11 +313,11 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_line_groups_no_new_line(FileName :: string(),
-                             GroupToElemFun :: fun((Lines :: [string()]) -> GroupType),
-                             Separator :: string()) ->
-                                [GroupType]
-                                when GroupType :: term().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_line_groups_no_new_line(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
+                                   GroupToElemFun :: fun((Lines :: [<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()]) -> GroupType),
+                                   Separator :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) ->
+                                      [GroupType]
+                                      when GroupType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
@@ -318,15 +327,13 @@ Functions
 <section class="detail" id="read_lines/1">
 
   <div class="detail-header">
-    <a href="#read_lines/1" class="detail-link" title="Link to this function">
+    <a href="#read_lines/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_lines(FileName)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L68" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L68" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -336,7 +343,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_lines(FileName :: string()) -> [Line :: string()].</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_lines(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> [Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()].</pre>
 
       </div>
 
@@ -346,15 +353,13 @@ Functions
 <section class="detail" id="read_lines_no_new_line/1">
 
   <div class="detail-header">
-    <a href="#read_lines_no_new_line/1" class="detail-link" title="Link to this function">
+    <a href="#read_lines_no_new_line/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_lines_no_new_line(FileName)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L80" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L80" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -364,7 +369,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_lines_no_new_line(FileName :: string()) -> [Line :: string()].</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_lines_no_new_line(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> [Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()].</pre>
 
       </div>
 
@@ -374,15 +379,13 @@ Functions
 <section class="detail" id="read_lines_no_new_line_to_elems/2">
 
   <div class="detail-header">
-    <a href="#read_lines_no_new_line_to_elems/2" class="detail-link" title="Link to this function">
+    <a href="#read_lines_no_new_line_to_elems/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_lines_no_new_line_to_elems(FileName, LineToElemFun)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L149" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L149" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -392,10 +395,10 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_lines_no_new_line_to_elems(FileName :: string(),
-                                LineToElemFun :: fun((Line :: string()) -> ElemType)) ->
-                                   [ElemType]
-                                   when ElemType :: term().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_lines_no_new_line_to_elems(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
+                                      LineToElemFun :: fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> ElemType)) ->
+                                         [ElemType]
+                                         when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
@@ -405,15 +408,13 @@ Functions
 <section class="detail" id="read_lines_no_new_line_to_elems/3">
 
   <div class="detail-header">
-    <a href="#read_lines_no_new_line_to_elems/3" class="detail-link" title="Link to this function">
+    <a href="#read_lines_no_new_line_to_elems/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_lines_no_new_line_to_elems(FileName, LineToElemFuns, Separator)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L167" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L167" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -423,11 +424,11 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_lines_no_new_line_to_elems(FileName :: string(),
-                                LineToElemFuns :: [fun((Line :: string()) -> ElemType)],
-                                Separator :: string()) ->
-                                   [[ElemType]]
-                                   when ElemType :: term().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_lines_no_new_line_to_elems(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
+                                      LineToElemFuns :: [fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> ElemType)],
+                                      Separator :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) ->
+                                         [[ElemType]]
+                                         when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
@@ -437,15 +438,13 @@ Functions
 <section class="detail" id="read_lines_to_elems/2">
 
   <div class="detail-header">
-    <a href="#read_lines_to_elems/2" class="detail-link" title="Link to this function">
+    <a href="#read_lines_to_elems/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_lines_to_elems(FileName, LineToElemFun)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L95" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L95" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -455,9 +454,9 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_lines_to_elems(FileName :: string(), LineToElemFun :: fun((Line :: string()) -> ElemType)) ->
-                       [ElemType]
-                       when ElemType :: term().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_lines_to_elems(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(), LineToElemFun :: fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> ElemType)) ->
+                             [ElemType]
+                             when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
@@ -467,15 +466,13 @@ Functions
 <section class="detail" id="read_lines_to_elems/3">
 
   <div class="detail-header">
-    <a href="#read_lines_to_elems/3" class="detail-link" title="Link to this function">
+    <a href="#read_lines_to_elems/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_lines_to_elems(FileName, LineToElemFuns, Separator)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L117" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L117" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -485,11 +482,11 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_lines_to_elems(FileName :: string(),
-                    LineToElemFuns :: [fun((Line :: string()) -> ElemType)],
-                    Separator :: string()) ->
-                       [[ElemType]]
-                       when ElemType :: term().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_lines_to_elems(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
+                          LineToElemFuns :: [fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> ElemType)],
+                          Separator :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) ->
+                             [[ElemType]]
+                             when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
@@ -499,15 +496,13 @@ Functions
 <section class="detail" id="read_only_line/1">
 
   <div class="detail-header">
-    <a href="#read_only_line/1" class="detail-link" title="Link to this function">
+    <a href="#read_only_line/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_only_line(FileName)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L40" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L40" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -517,7 +512,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_only_line(FileName :: string()) -> Line :: string().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_only_line(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>().</pre>
 
       </div>
 
@@ -527,15 +522,13 @@ Functions
 <section class="detail" id="read_only_line_no_new_line/1">
 
   <div class="detail-header">
-    <a href="#read_only_line_no_new_line/1" class="detail-link" title="Link to this function">
+    <a href="#read_only_line_no_new_line/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
-      <span class="sr-only">Link to this function</span>
     </a>
     <h1 class="signature" translate="no">read_only_line_no_new_line(FileName)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/v0.0.0+build.5.ref6560f5c/src/ja_erl_utils_file.erl#L54" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0/src/ja_erl_utils_file.erl#L54" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-       <span class="sr-only">View Source</span>
      </a>
 
 
@@ -545,7 +538,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_only_line_no_new_line(FileName :: string()) -> Line :: string().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_only_line_no_new_line(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>().</pre>
 
       </div>
 
@@ -556,37 +549,40 @@ Functions
     </div>
   </section>
 
-      <footer class="footer">
+    <footer class="footer">
+      <p>
 
-          <p>
-            On Hex.pm:
+          <span class="line">
+            <a href="https://hex.pm/packages/ja_erl_utils/0.1.0" class="footer-hex-package">Hex Package</a>
 
-            <span class="line">
-              <a href="https://hex.pm/packages/ja_erl_utils/0.0.0+build.5.ref6560f5c" class="line footer-hex-package">Package</a>
-              <a href="https://preview.hex.pm/preview/ja_erl_utils/0.0.0+build.5.ref6560f5c" class="line">Preview</a>
+            <a href="https://preview.hex.pm/preview/ja_erl_utils/0.1.0">Hex Preview</a>
 
-                <a href="https://preview.hex.pm/preview/ja_erl_utils/0.0.0+build.5.ref6560f5c/show/src/ja_erl_utils_file.erl">(current file)</a>
+          </span>
 
-            </span>
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-            <button class="a-main line footer-button display-quick-switch">
-              Search
-            </button>
-          </p>
+            <a href="ja_erl_utils.epub" title="ePub version">
+              Download ePub version
+            </a>
 
-        <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.0) for the
+        </span>
+      </p>
 
-            <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.35.1) for the
 
-        </p>
-      </footer>
-    </div>
+          <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+      </p>
+
+    </footer>
   </div>
-</section>
+</main>
 </div>
-
 
   </body>
 </html>

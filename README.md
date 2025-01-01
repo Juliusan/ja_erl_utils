@@ -3,14 +3,14 @@
 This is an OTP library, containing various utility functions for Erlang.
 It consists of some functions, which should ease code development.
 The functions are grouped into modules by their domains. These modules are available:
-* [`ja_erl_utils_bit`](ja_erl_utils_bit.html) contains functions for working with binary numbers.
-* [`ja_erl_utils_console`](ja_erl_utils_console.html) contains functions for working with console output and input.
-* [`ja_erl_utils_file`](ja_erl_utils_file.html) contains functions for reading and writing files.
-* [`ja_erl_utils_int`](ja_erl_utils_int.html) contains functions for working integer numbers.
-* [`ja_erl_utils_list`](ja_erl_utils_list.html) contains functions for working with lists.
-* [`ja_erl_utils_map`](ja_erl_utils_map.html) contains functions for working with Erlang maps.
-* [`ja_erl_utils_matrix`](ja_erl_utils_matrix.html) contains functions for working with two dimensional arrays (matrices).
-* [`ja_erl_utils_string`](ja_erl_utils_string.html) contains functions for working with strings as well as parsing them.
+* `m:ja_erl_utils_bit` contains functions for working with binary numbers.
+* `m:ja_erl_utils_console` contains functions for working with console output and input.
+* `m:ja_erl_utils_file` contains functions for reading and writing files.
+* `m:ja_erl_utils_int` contains functions for working integer numbers.
+* `m:ja_erl_utils_list` contains functions for working with lists.
+* `m:ja_erl_utils_map` contains functions for working with Erlang maps.
+* `m:ja_erl_utils_matrix` contains functions for working with two dimensional arrays (matrices).
+* `m:ja_erl_utils_string` contains functions for working with strings as well as parsing them.
 
 This library is heavily influenced by the needs, which arose while solving [Advent of Code](https://adventofcode.com/) tasks.
 If you want to check out my solutions to at least some of them, you can visit [my Advent of Code repository](https://github.com/Juliusan/adventofcode).
