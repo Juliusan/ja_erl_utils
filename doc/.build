@@ -17,11 +17,11 @@ dist/lato-latin-ext-300-normal-VPGGJKJL.woff2
 dist/lato-latin-ext-400-normal-N27NCBWW.woff2
 dist/lato-latin-ext-700-normal-Q2L5DVMW.woff2
 dist/remixicon-NKANDIL5.woff2
-dist/search_data-E53762D7.js
-dist/sidebar_items-83D4C865.js
+dist/search_data-34748963.js
+dist/sidebar_items-6B5713D1.js
 index.html
 ja_erl_utils.html
-ja_erl_utils_bit.html
+ja_erl_utils_binint.html
 ja_erl_utils_console.html
 ja_erl_utils_file.html
 ja_erl_utils_int.html

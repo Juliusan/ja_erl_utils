@@ -3,7 +3,7 @@
 This is an OTP library, containing various utility functions for Erlang.
 It consists of some functions, which should ease code development.
 The functions are grouped into modules by their domains. These modules are available:
-* `m:ja_erl_utils_bit` contains functions for working with binary numbers.
+* `m:ja_erl_utils_binint` contains functions for working with binary integers.
 * `m:ja_erl_utils_console` contains functions for working with console output and input.
 * `m:ja_erl_utils_file` contains functions for reading and writing files.
 * `m:ja_erl_utils_int` contains functions for working integer numbers.

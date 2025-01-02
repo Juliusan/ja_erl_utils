@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.35.1">
+    <meta name="project" content="ja_erl_utils v0.1.0">
+
+
+    <title>ja_erl_utils_binint — ja_erl_utils v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-erlang-4IXSOGMD.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-6B5713D1.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-PVRIOB7F.js"></script>
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="https://github.com/Juliusan/ja_erl_utils" class="sidebar-projectName" translate="no">
+ja_erl_utils
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.1.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of ja_erl_utils</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L16" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+    <span translate="no">ja_erl_utils_binint</span> 
+    <small class="app-vsn" translate="no">(ja_erl_utils v0.1.0)</small>
+
+  </h1>
+
+
+    <section id="moduledoc">
+<p>Module for working with binary integers and bits.</p>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-types summary">
+  <h2>
+    <a href="#types">Types</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:binint/0" data-no-tooltip translate="no">binint()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Represents a binary integer number.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:bit/0" data-no-tooltip translate="no">bit()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Represents one bit.</p></div>
+
+    </div>
+
+</div>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#and_/2" data-no-tooltip translate="no">and_(BinInt1, BinInt2)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Performs bitwise <code class="inline">and</code> operation on two binary integers.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#bit_and/2" data-no-tooltip translate="no">bit_and(Bit1, Bit2)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Performs <code class="inline">and</code> operation on two bits.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#bit_invert/1" data-no-tooltip translate="no">bit_invert(Bit)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Inverts a single bit.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#bit_or/2" data-no-tooltip translate="no">bit_or(Bit1, Bit2)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Performs <code class="inline">or</code> operation on two bits.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#bit_xor/2" data-no-tooltip translate="no">bit_xor(Bit1, Bit2)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Performs <code class="inline">xor</code> operation on two bits.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#drop_insignificant_zeros/1" data-no-tooltip translate="no">drop_insignificant_zeros(BinInt)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Drops insignificant 0s (the ones, that are in the most significant positions)
+of binary integer.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#from_integer/1" data-no-tooltip translate="no">from_integer(Integer)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns binary representation of integer.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#invert/1" data-no-tooltip translate="no">invert(BinInt)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Inverts bits of a binary integer.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#or_/2" data-no-tooltip translate="no">or_(BinInt1, BinInt2)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Performs bitwise <code class="inline">or</code> operation on two binary integers.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#to_integer/1" data-no-tooltip translate="no">to_integer(BinInt)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns integer from its binary representation.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#xor_/2" data-no-tooltip translate="no">xor_(BinInt1, BinInt2)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Performs bitwise <code class="inline">xor</code> operation on two binary integers.</p></div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="types" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#types">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Types</span>
+    </h1>
+    <div class="types-list">
+<section class="detail" id="t:binint/0">
+
+  <div class="detail-header">
+    <a href="#t:binint/0" class="detail-link" data-no-tooltip aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">binint()</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/_build/docs/lib/ja_erl_utils/include/ja_erl_utils_binint.hrl#L13" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-type</span> binint() :: [<a href="#t:bit/0">bit</a>()].</pre>
+
+      </div>
+
+<p>Represents a binary integer number.</p><p>The list of bits starts with the least significant bit and ends with the
+most significant one.</p>
+  </section>
+</section>
+<section class="detail" id="t:bit/0">
+
+  <div class="detail-header">
+    <a href="#t:bit/0" class="detail-link" data-no-tooltip aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">bit()</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/_build/docs/lib/ja_erl_utils/include/ja_erl_utils_binint.hrl#L5" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-type</span> bit() :: 0 | 1.</pre>
+
+      </div>
+
+<p>Represents one bit.</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="and_/2">
+
+  <div class="detail-header">
+    <a href="#and_/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">and_(BinInt1, BinInt2)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L91" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> and_(BinInt1 :: <a href="#t:binint/0">binint</a>(), BinInt2 :: <a href="#t:binint/0">binint</a>()) -> BinInt1AndBinInt2 :: <a href="#t:binint/0">binint</a>().</pre>
+
+      </div>
+
+<p>Performs bitwise <code class="inline">and</code> operation on two binary integers.</p>
+  </section>
+</section>
+<section class="detail" id="bit_and/2">
+
+  <div class="detail-header">
+    <a href="#bit_and/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">bit_and(Bit1, Bit2)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L54" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> bit_and(Bit1 :: <a href="#t:bit/0">bit</a>(), Bit2 :: <a href="#t:bit/0">bit</a>()) -> Bit1AndBit2 :: <a href="#t:bit/0">bit</a>().</pre>
+
+      </div>
+
+<p>Performs <code class="inline">and</code> operation on two bits.</p><p>In addition to Erlang's <code class="inline">band</code> operator, it checks if parameters are bits.</p>
+  </section>
+</section>
+<section class="detail" id="bit_invert/1">
+
+  <div class="detail-header">
+    <a href="#bit_invert/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">bit_invert(Bit)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L83" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> bit_invert(Bit :: <a href="#t:bit/0">bit</a>()) -> InvertedBit :: <a href="#t:bit/0">bit</a>().</pre>
+
+      </div>
+
+<p>Inverts a single bit.</p>
+  </section>
+</section>
+<section class="detail" id="bit_or/2">
+
+  <div class="detail-header">
+    <a href="#bit_or/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">bit_or(Bit1, Bit2)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L65" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> bit_or(Bit1 :: <a href="#t:bit/0">bit</a>(), Bit2 :: <a href="#t:bit/0">bit</a>()) -> Bit1OrBit2 :: <a href="#t:bit/0">bit</a>().</pre>
+
+      </div>
+
+<p>Performs <code class="inline">or</code> operation on two bits.</p><p>In addition to Erlang's <code class="inline">bor</code> operator, it checks if parameters are bits.</p>
+  </section>
+</section>
+<section class="detail" id="bit_xor/2">
+
+  <div class="detail-header">
+    <a href="#bit_xor/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">bit_xor(Bit1, Bit2)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L76" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> bit_xor(Bit1 :: <a href="#t:bit/0">bit</a>(), Bit2 :: <a href="#t:bit/0">bit</a>()) -> Bit1XorBit2 :: <a href="#t:bit/0">bit</a>().</pre>
+
+      </div>
+
+<p>Performs <code class="inline">xor</code> operation on two bits.</p><p>In addition to Erlang's <code class="inline">bxor</code> operator, it checks if parameters are bits.</p>
+  </section>
+</section>
+<section class="detail" id="drop_insignificant_zeros/1">
+
+  <div class="detail-header">
+    <a href="#drop_insignificant_zeros/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">drop_insignificant_zeros(BinInt)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L127" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> drop_insignificant_zeros(BinInt :: <a href="#t:binint/0">binint</a>()) -> Result :: <a href="#t:binint/0">binint</a>().</pre>
+
+      </div>
+
+<p>Drops insignificant 0s (the ones, that are in the most significant positions)
+of binary integer.</p>
+  </section>
+</section>
+<section class="detail" id="from_integer/1">
+
+  <div class="detail-header">
+    <a href="#from_integer/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">from_integer(Integer)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L32" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> from_integer(Integer :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> BinInt :: <a href="#t:binint/0">binint</a>().</pre>
+
+      </div>
+
+<p>Returns binary representation of integer.</p>
+  </section>
+</section>
+<section class="detail" id="invert/1">
+
+  <div class="detail-header">
+    <a href="#invert/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">invert(BinInt)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L117" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> invert(BinInt :: <a href="#t:binint/0">binint</a>()) -> BinIntInverted :: <a href="#t:binint/0">binint</a>().</pre>
+
+      </div>
+
+<p>Inverts bits of a binary integer.</p><p>The resulting binary integer might contain 0 as the most significant number.
+Use <a href="#drop_insignificant_zeros/1"><code class="inline">drop_insignificant_zeros/1</code></a> to remove them.</p>
+  </section>
+</section>
+<section class="detail" id="or_/2">
+
+  <div class="detail-header">
+    <a href="#or_/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">or_(BinInt1, BinInt2)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L98" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> or_(BinInt1 :: <a href="#t:binint/0">binint</a>(), BinInt2 :: <a href="#t:binint/0">binint</a>()) -> BinInt1OrBinInt2 :: <a href="#t:binint/0">binint</a>().</pre>
+
+      </div>
+
+<p>Performs bitwise <code class="inline">or</code> operation on two binary integers.</p>
+  </section>
+</section>
+<section class="detail" id="to_integer/1">
+
+  <div class="detail-header">
+    <a href="#to_integer/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">to_integer(BinInt)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L41" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> to_integer(BinInt :: <a href="#t:binint/0">binint</a>()) -> Integer :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
+
+      </div>
+
+<p>Returns integer from its binary representation.</p>
+  </section>
+</section>
+<section class="detail" id="xor_/2">
+
+  <div class="detail-header">
+    <a href="#xor_/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">xor_(BinInt1, BinInt2)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_binint.erl#L105" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> xor_(BinInt1 :: <a href="#t:binint/0">binint</a>(), BinInt2 :: <a href="#t:binint/0">binint</a>()) -> BinInt1XorBinInt2 :: <a href="#t:binint/0">binint</a>().</pre>
+
+      </div>
+
+<p>Performs bitwise <code class="inline">xor</code> operation on two binary integers.</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="ja_erl_utils.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.35.1) for the
+
+          <a href="https://erlang.org" title="Erlang" target="_blank" translate="no">Erlang programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
