@@ -8,13 +8,13 @@
     <meta name="project" content="ja_erl_utils v0.1.0">
 
 
-    <title>ja_erl_utils_console — ja_erl_utils v0.1.0</title>
+    <title>ja_erl_utils_terminal — ja_erl_utils v0.1.0</title>
     <link rel="stylesheet" href="dist/html-erlang-4IXSOGMD.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-6B5713D1.js"></script>
+    <script src="dist/sidebar_items-ED9F0A4D.js"></script>
     <script src="docs_config.js"></script>
     <script async src="dist/html-PVRIOB7F.js"></script>
 
@@ -112,16 +112,24 @@ Pages
 <div id="top-content">
   <h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_console.erl#L1" title="View Source" class="icon-action" rel="help">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_terminal.erl#L16" title="View Source" class="icon-action" rel="help">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
 
-    <span translate="no">ja_erl_utils_console</span> 
+    <span translate="no">ja_erl_utils_terminal</span> 
     <small class="app-vsn" translate="no">(ja_erl_utils v0.1.0)</small>
 
   </h1>
 
+
+    <section id="moduledoc">
+<p>Module for terminal input and output functions.</p><p>This module is probably most useful while the application is being developed.
+It expects that standard input and output device of the program is a terminal,
+which usually is the case.
+These functions allow to interfere normal program execution in order to obtain
+information useful for debugging.</p>
+    </section>
 
 </div>
 
@@ -143,13 +151,17 @@ Pages
 
       </div>
 
+        <div class="summary-synopsis"><p>Outputs message to the terminal.</p></div>
+
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#print/2" data-no-tooltip translate="no">print(Pattern, Params)</a>
+        <a href="#print/2" data-no-tooltip translate="no">print(Format, Params)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Outputs parametrised message to the terminal.</p></div>
 
     </div>
 
@@ -158,6 +170,8 @@ Pages
         <a href="#wait_key_press/0" data-no-tooltip translate="no">wait_key_press()</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Stops execution of the program, until <code class="inline">Enter</code> key is pressed.</p></div>
 
     </div>
 
@@ -182,7 +196,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">print(Message)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_console.erl#L12" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_terminal.erl#L39" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -197,7 +211,7 @@ Pages
 
       </div>
 
-
+<p>Outputs message to the terminal.</p><p>Appends a newline character to the end of the message.</p>
   </section>
 </section>
 <section class="detail" id="print/2">
@@ -206,9 +220,9 @@ Pages
     <a href="#print/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">print(Pattern, Params)</h1>
+    <h1 class="signature" translate="no">print(Format, Params)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_console.erl#L24" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_terminal.erl#L57" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -219,11 +233,13 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> print(Pattern :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(), Params :: [<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>()]) -> ok.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> print(Format :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(), Params :: [<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>()]) -> ok.</pre>
 
       </div>
 
-
+<p>Outputs parametrised message to the terminal.</p><p>Appends a newline character to the end of the message.
+<code class="inline">Format</code> variable provides message format and <code class="inline">Params</code> provides the values for the parameters.
+For more information see <a href="https://www.erlang.org/doc/apps/stdlib/io.html#fwrite/3"><code class="inline">io:fwrite/3</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="wait_key_press/0">
@@ -234,7 +250,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">wait_key_press()</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.9.ref43facff/src/ja_erl_utils_console.erl#L32" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_terminal.erl#L66" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -249,7 +265,7 @@ Pages
 
       </div>
 
-
+<p>Stops execution of the program, until <code class="inline">Enter</code> key is pressed.</p>
   </section>
 </section>
 
