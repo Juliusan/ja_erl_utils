@@ -141,6 +141,5 @@ solve_two_equations_int_test_() ->
         ?_assertEqual(undefined,            ja_erl_utils_int:solve_two_equations_int({8, 2, 21}, {4, 6, 18})), % x=2.25; y=1.5
         ?_assertEqual(undefined,            ja_erl_utils_int:solve_two_equations_int({4, 6, 18}, {8, 2, 21})), % x=2.25; y=1.5
         ?_assertEqual(undefined,            ja_erl_utils_int:solve_two_equations_int({0, 7, 35}, {0, 6, 24})),
-        ?_assertEqual(undefined,            ja_erl_utils_int:solve_two_equations_int({7, 0, 35}, {6, 0, 24})),
-        ?_assert(true)
+        ?_assertEqual(undefined,            ja_erl_utils_int:solve_two_equations_int({7, 0, 35}, {6, 0, 24}))
     ].

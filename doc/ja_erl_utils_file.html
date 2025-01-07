@@ -112,7 +112,7 @@ Pages
 <div id="top-content">
   <h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L1" title="View Source" class="icon-action" rel="help">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L16" title="View Source" class="icon-action" rel="help">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -122,6 +122,14 @@ Pages
 
   </h1>
 
+
+    <section id="moduledoc">
+<p>Module for functions that read information from file and write information to file.
+Currently there are no write functions.</p><p>In <a href="https://adventofcode.com/">Advent of Code</a> input data is provided in
+files, and there are some regularly occurring patterns of those files.
+These functions try to help with reading them. Quite possibly, they will
+be useful in other cases too.</p>
+    </section>
 
 </div>
 
@@ -143,6 +151,8 @@ Pages
 
       </div>
 
+        <div class="summary-synopsis"><p>Reads the whole file <code class="inline">FileName</code> into a single string.</p></div>
+
     </div>
 
     <div class="summary-row">
@@ -150,6 +160,10 @@ Pages
         <a href="#read_line_groups/3" data-no-tooltip translate="no">read_line_groups(FileName, GroupToElemFun, Separator)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Reads file <code class="inline">FileName</code>, which consists of groups of lines, separated by line
+<code class="inline">Separator</code>. Each group of lines is converted to element in the resulting
+list using function <code class="inline">GroupToElemFun</code>.</p></div>
 
     </div>
 
@@ -159,6 +173,9 @@ Pages
 
       </div>
 
+        <div class="summary-synopsis"><p>Same as <a href="#read_line_groups/3"><code class="inline">read_line_groups/3</code></a>, but the read lines are stripped of trailing
+new line character before passing to <code class="inline">GroupToElemFun</code>.</p></div>
+
     </div>
 
     <div class="summary-row">
@@ -166,6 +183,8 @@ Pages
         <a href="#read_lines/1" data-no-tooltip translate="no">read_lines(FileName)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Reads file <code class="inline">FileName</code> and returns the list of lines.</p></div>
 
     </div>
 
@@ -175,6 +194,8 @@ Pages
 
       </div>
 
+        <div class="summary-synopsis"><p>Reads file <code class="inline">FileName</code> and returns the list of lines without new line in the end.</p></div>
+
     </div>
 
     <div class="summary-row">
@@ -182,6 +203,9 @@ Pages
         <a href="#read_lines_no_new_line_to_elems/2" data-no-tooltip translate="no">read_lines_no_new_line_to_elems(FileName, LineToElemFun)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Same as <a href="#read_lines_to_elems/2"><code class="inline">read_lines_to_elems/2</code></a>, but the read line is stripped of trailing
+new line character before passing to <code class="inline">LineToElemFun</code>.</p></div>
 
     </div>
 
@@ -191,6 +215,9 @@ Pages
 
       </div>
 
+        <div class="summary-synopsis"><p>Same as <a href="#read_lines_to_elems/3"><code class="inline">read_lines_to_elems/3</code></a>, but the read line is stripped of trailing
+new line character before passing to any of <code class="inline">LineToElemFuns</code>.</p></div>
+
     </div>
 
     <div class="summary-row">
@@ -198,6 +225,9 @@ Pages
         <a href="#read_lines_to_elems/2" data-no-tooltip translate="no">read_lines_to_elems(FileName, LineToElemFun)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Reads file <code class="inline">FileName</code> and converts each line to a single element in the
+resulting list, using <code class="inline">LineToElemFun</code> function.</p></div>
 
     </div>
 
@@ -207,6 +237,10 @@ Pages
 
       </div>
 
+        <div class="summary-synopsis"><p>Reads file <code class="inline">FileName</code>, which consists of several parts, separated by line
+<code class="inline">Separator</code>, and converts each line in each part to a single element in the
+resulting list, using one of functions in <code class="inline">LineToElemFuns</code> list.</p></div>
+
     </div>
 
     <div class="summary-row">
@@ -215,6 +249,8 @@ Pages
 
       </div>
 
+        <div class="summary-synopsis"><p>Reads file <code class="inline">FileName</code> and returns the single line of the file.</p></div>
+
     </div>
 
     <div class="summary-row">
@@ -222,6 +258,9 @@ Pages
         <a href="#read_only_line_no_new_line/1" data-no-tooltip translate="no">read_only_line_no_new_line(FileName)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Reads file <code class="inline">FileName</code> and returns the single line of the file without new
+line in the end.</p></div>
 
     </div>
 
@@ -246,7 +285,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">read_file(FileName)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L25" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L48" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -261,7 +300,7 @@ Pages
 
       </div>
 
-
+<p>Reads the whole file <code class="inline">FileName</code> into a single string.</p>
   </section>
 </section>
 <section class="detail" id="read_line_groups/3">
@@ -272,7 +311,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">read_line_groups(FileName, GroupToElemFun, Separator)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L191" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L245" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -284,14 +323,19 @@ Pages
       <div class="specs">
 
           <pre translate="no"><span class="attribute">-spec</span> read_line_groups(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
-                       GroupToElemFun :: fun((Lines :: [<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()]) -> GroupType),
+                       GroupToElemFun :: fun((GroupOfLines :: [Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()]) -> Elem :: ElemType),
                        Separator :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) ->
-                          [GroupType]
-                          when GroupType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
+                          Elems :: [Elem :: ElemType]
+                          when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
-
+<p>Reads file <code class="inline">FileName</code>, which consists of groups of lines, separated by line
+<code class="inline">Separator</code>. Each group of lines is converted to element in the resulting
+list using function <code class="inline">GroupToElemFun</code>.</p><p>The <code class="inline">Elems</code> list is in reversed order compared to groups of lines in the
+input file, which were used to make it. Function <code class="inline">GroupToElemFun</code> receives
+lines in <code class="inline">GroupOfLines</code> parameter in reversed order too. For motivation see
+<a href="#read_lines/1"><code class="inline">read_lines/1</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="read_line_groups_no_new_line/3">
@@ -302,7 +346,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">read_line_groups_no_new_line(FileName, GroupToElemFun, Separator)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L220" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L281" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -314,14 +358,17 @@ Pages
       <div class="specs">
 
           <pre translate="no"><span class="attribute">-spec</span> read_line_groups_no_new_line(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
-                                   GroupToElemFun :: fun((Lines :: [<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()]) -> GroupType),
+                                   GroupToElemFun ::
+                                       fun((GroupOfLines :: [Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()]) -> Elem :: ElemType),
                                    Separator :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) ->
-                                      [GroupType]
-                                      when GroupType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
+                                      Elems :: [Elem :: ElemType]
+                                      when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
-
+<p>Same as <a href="#read_line_groups/3"><code class="inline">read_line_groups/3</code></a>, but the read lines are stripped of trailing
+new line character before passing to <code class="inline">GroupToElemFun</code>.</p><p>Note that <code class="inline">Separator</code> is still compared to the whole line, including
+trailing new line character.</p>
   </section>
 </section>
 <section class="detail" id="read_lines/1">
@@ -332,7 +379,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">read_lines(FileName)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L68" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L102" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -343,11 +390,15 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_lines(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> [Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()].</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_lines(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> Lines :: [<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()].</pre>
 
       </div>
 
-
+<p>Reads file <code class="inline">FileName</code> and returns the list of lines.</p><p>The <code class="inline">Lines</code> list is in reversed order compared to the input file. In some
+cases, there is no difference if the order of the lines is reversed, so
+they can benefit from slightly better reading performance. In other cases
+function <a href="https://www.erlang.org/doc/apps/stdlib/lists.html#reverse/1"><code class="inline">lists:reverse/1</code></a> can be called explicitly on the result of this
+function.</p>
   </section>
 </section>
 <section class="detail" id="read_lines_no_new_line/1">
@@ -358,7 +409,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">read_lines_no_new_line(FileName)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L80" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L117" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -369,11 +420,12 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> read_lines_no_new_line(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> [Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()].</pre>
+          <pre translate="no"><span class="attribute">-spec</span> read_lines_no_new_line(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> Lines :: [<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()].</pre>
 
       </div>
 
-
+<p>Reads file <code class="inline">FileName</code> and returns the list of lines without new line in the end.</p><p>The <code class="inline">Lines</code> list is in reversed order compared to the input file.
+For motivation see <a href="#read_lines/1"><code class="inline">read_lines/1</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="read_lines_no_new_line_to_elems/2">
@@ -384,7 +436,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">read_lines_no_new_line_to_elems(FileName, LineToElemFun)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L149" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L195" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -396,13 +448,14 @@ Pages
       <div class="specs">
 
           <pre translate="no"><span class="attribute">-spec</span> read_lines_no_new_line_to_elems(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
-                                      LineToElemFun :: fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> ElemType)) ->
-                                         [ElemType]
+                                      LineToElemFun :: fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> Elem :: ElemType)) ->
+                                         Elems :: [Elem :: ElemType]
                                          when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
-
+<p>Same as <a href="#read_lines_to_elems/2"><code class="inline">read_lines_to_elems/2</code></a>, but the read line is stripped of trailing
+new line character before passing to <code class="inline">LineToElemFun</code>.</p>
   </section>
 </section>
 <section class="detail" id="read_lines_no_new_line_to_elems/3">
@@ -413,7 +466,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">read_lines_no_new_line_to_elems(FileName, LineToElemFuns, Separator)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L167" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L216" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -425,14 +478,16 @@ Pages
       <div class="specs">
 
           <pre translate="no"><span class="attribute">-spec</span> read_lines_no_new_line_to_elems(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
-                                      LineToElemFuns :: [fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> ElemType)],
+                                      LineToElemFuns :: [fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> Elem :: ElemType)],
                                       Separator :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) ->
-                                         [[ElemType]]
+                                         Parts :: [Part :: [Elem :: ElemType]]
                                          when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
-
+<p>Same as <a href="#read_lines_to_elems/3"><code class="inline">read_lines_to_elems/3</code></a>, but the read line is stripped of trailing
+new line character before passing to any of <code class="inline">LineToElemFuns</code>.</p><p>Note that <code class="inline">Separator</code> is still compared to the whole line, including
+trailing new line character.</p>
   </section>
 </section>
 <section class="detail" id="read_lines_to_elems/2">
@@ -443,35 +498,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">read_lines_to_elems(FileName, LineToElemFun)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L95" class="icon-action" rel="help" aria-label="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">-spec</span> read_lines_to_elems(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(), LineToElemFun :: fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> ElemType)) ->
-                             [ElemType]
-                             when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
-
-      </div>
-
-
-  </section>
-</section>
-<section class="detail" id="read_lines_to_elems/3">
-
-  <div class="detail-header">
-    <a href="#read_lines_to_elems/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <h1 class="signature" translate="no">read_lines_to_elems(FileName, LineToElemFuns, Separator)</h1>
-
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L117" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L136" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -483,14 +510,52 @@ Pages
       <div class="specs">
 
           <pre translate="no"><span class="attribute">-spec</span> read_lines_to_elems(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
-                          LineToElemFuns :: [fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> ElemType)],
-                          Separator :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) ->
-                             [[ElemType]]
+                          LineToElemFun :: fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> Elem :: ElemType)) ->
+                             Elems :: [Elem :: ElemType]
                              when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
 
       </div>
 
+<p>Reads file <code class="inline">FileName</code> and converts each line to a single element in the
+resulting list, using <code class="inline">LineToElemFun</code> function.</p><p>The <code class="inline">Elems</code> list is in reversed order compared to the input file.
+For motivation see <a href="#read_lines/1"><code class="inline">read_lines/1</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="read_lines_to_elems/3">
 
+  <div class="detail-header">
+    <a href="#read_lines_to_elems/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">read_lines_to_elems(FileName, LineToElemFuns, Separator)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L162" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> read_lines_to_elems(FileName :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>(),
+                          LineToElemFuns :: [fun((Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) -> Elem :: ElemType)],
+                          Separator :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()) ->
+                             Parts :: [Part :: [Elem :: ElemType]]
+                             when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
+
+      </div>
+
+<p>Reads file <code class="inline">FileName</code>, which consists of several parts, separated by line
+<code class="inline">Separator</code>, and converts each line in each part to a single element in the
+resulting list, using one of functions in <code class="inline">LineToElemFuns</code> list.</p><p>Lines in first part are converted using first function of <code class="inline">LineToElemFuns</code>
+list, lines in second part - using second function of <code class="inline">LineToElemFuns</code>,
+etc... The list of parts is returned. Each part is a list of elements in
+reversed order compared to lines of input file, which were used to make
+them. For motivation see <a href="#read_lines/1"><code class="inline">read_lines/1</code></a>. However, the parts are in the same
+order as in the input file.</p>
   </section>
 </section>
 <section class="detail" id="read_only_line/1">
@@ -501,7 +566,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">read_only_line(FileName)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L40" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L65" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -516,7 +581,7 @@ Pages
 
       </div>
 
-
+<p>Reads file <code class="inline">FileName</code> and returns the single line of the file.</p><p>Crashes if the file contains more than one line.</p>
   </section>
 </section>
 <section class="detail" id="read_only_line_no_new_line/1">
@@ -527,7 +592,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">read_only_line_no_new_line(FileName)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.10.refbdf0f02/src/ja_erl_utils_file.erl#L54" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_file.erl#L82" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -542,7 +607,8 @@ Pages
 
       </div>
 
-
+<p>Reads file <code class="inline">FileName</code> and returns the single line of the file without new
+line in the end.</p><p>Crashes if the file contains more than one line.</p>
   </section>
 </section>
 
