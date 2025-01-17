@@ -14,7 +14,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-ED9F0A4D.js"></script>
+    <script src="dist/sidebar_items-DA627AF2.js"></script>
     <script src="docs_config.js"></script>
     <script async src="dist/html-PVRIOB7F.js"></script>
 
@@ -112,7 +112,7 @@ Pages
 <div id="top-content">
   <h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_int.erl#L1" title="View Source" class="icon-action" rel="help">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.13.refce73eed/src/ja_erl_utils_int.erl#L16" title="View Source" class="icon-action" rel="help">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -122,6 +122,10 @@ Pages
 
   </h1>
 
+
+    <section id="moduledoc">
+<p>Module for working with integer numbers.</p>
+    </section>
 
 </div>
 
@@ -139,9 +143,22 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#concat_integers/2" data-no-tooltip translate="no">concat_integers(Int1, Int2)</a>
+        <a href="#concat/2" data-no-tooltip translate="no">concat(IntStart, IntEnd)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Returns an integer, which results from concatenating second parameter to
+the end of the first parameter</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#digit_count/1" data-no-tooltip translate="no">digit_count(Integer)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns the number of digits in non negative integer.</p></div>
 
     </div>
 
@@ -151,6 +168,8 @@ Pages
 
       </div>
 
+        <div class="summary-synopsis"><p>Calculates the quotient of Euclidean division <code class="inline">A/B</code>.</p></div>
+
     </div>
 
     <div class="summary-row">
@@ -159,45 +178,50 @@ Pages
 
       </div>
 
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#integer_10_pow/1" data-no-tooltip translate="no">integer_10_pow(Power)</a>
-
-      </div>
+        <div class="summary-synopsis"><p>Calculates the remainder of Euclidean division <code class="inline">A/B</code>.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#integer_digit_count/1" data-no-tooltip translate="no">integer_digit_count(Int)</a>
+        <a href="#solve_one_equation/1" data-no-tooltip translate="no">solve_one_equation(Equation)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Solves a single linear equation <code class="inline">A*x = B</code> for integer <code class="inline">x</code>.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#solve_one_equation_int/1" data-no-tooltip translate="no">solve_one_equation_int(_)</a>
+        <a href="#solve_two_equations/2" data-no-tooltip translate="no">solve_two_equations(Equation1, Equation2)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Solves system of two linear equations with two variables for integers.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#solve_two_equations_int/2" data-no-tooltip translate="no">solve_two_equations_int(_, _)</a>
+        <a href="#split/2" data-no-tooltip translate="no">split(Integer, Split)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Splits integer <code class="inline">Integer</code> into two integers, so that the second integer
+contains <code class="inline">Split</code> last digits of the initial integer and the first integer
+contains the rest digits.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#split_integer/2" data-no-tooltip translate="no">split_integer(Int, Split)</a>
+        <a href="#ten_pow/1" data-no-tooltip translate="no">ten_pow(Power)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Returns <code class="inline">Power</code>'th power of <code class="inline">10</code> (<code class="inline">10^Power</code>). This function differs from
+<a href="https://www.erlang.org/doc/apps/stdlib/math.html#pow/2"><code class="inline">math:pow/2</code></a> as it returns an integer.</p></div>
 
     </div>
 
@@ -214,15 +238,15 @@ Pages
       <span class="text">Functions</span>
     </h1>
     <div class="functions-list">
-<section class="detail" id="concat_integers/2">
+<section class="detail" id="concat/2">
 
   <div class="detail-header">
-    <a href="#concat_integers/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#concat/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">concat_integers(Int1, Int2)</h1>
+    <h1 class="signature" translate="no">concat(IntStart, IntEnd)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_int.erl#L45" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.13.refce73eed/src/ja_erl_utils_int.erl#L84" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -233,11 +257,44 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> concat_integers(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> concat(IntStart :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), IntEnd :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> IntStartEnd :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
 
       </div>
 
+<p>Returns an integer, which results from concatenating second parameter to
+the end of the first parameter</p><pre><code class="makeup erlang" translate="no"><span class="gp unselectable">1&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">concat</span><span class="p" data-group-id="2268431988-1">(</span><span class="mi">123</span><span class="p">,</span><span class="w"> </span><span class="mi">456</span><span class="p" data-group-id="2268431988-1">)</span><span class="p">.</span><span class="w">
+</span><span class="mi">123456</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="digit_count/1">
 
+  <div class="detail-header">
+    <a href="#digit_count/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">digit_count(Integer)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.13.refce73eed/src/ja_erl_utils_int.erl#L43" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> digit_count(Integer :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> DigitCount :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
+
+      </div>
+
+<p>Returns the number of digits in non negative integer.</p><p>To obtain the result, this function uses <a href="https://www.erlang.org/doc/apps/stdlib/math.html#log10/1"><code class="inline">math:log10/1</code></a>, which returns a
+floating point number. Converting floats to integers might cause errors due
+to loss of precision. To combat this, <a href="https://www.erlang.org/doc/apps/stdlib/math.html#log10/1"><code class="inline">math:log10/1</code></a> is applied only to
+sufficiently small numbers (less than <code class="inline">10^12</code>). Larger numbers are divided
+(using integer division, which is lossless), until they fit this interval.</p><p>TODO: Try recursive solution with single digit step, accumulating the result:</p><pre><code class="makeup erlang" translate="no"><span class="nf">fun</span><span class="p" data-group-id="1436529161-1">(</span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Number</span><span class="p">,</span><span class="w"> </span><span class="n">Power</span><span class="p" data-group-id="1436529161-1">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">Int</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Number</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Power</span><span class="p">;</span><span class="w">
+</span><span class="nf">fun</span><span class="p" data-group-id="1436529161-2">(</span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Number</span><span class="p">,</span><span class="w"> </span><span class="n">Power</span><span class="p" data-group-id="1436529161-2">)</span><span class="w"> </span><span class="p">_</span><span class="w">                 </span><span class="p">-&gt;</span><span class="w"> </span><span class="nf">fun</span><span class="p" data-group-id="1436529161-3">(</span><span class="n">Int</span><span class="p">,</span><span class="w"> </span><span class="n">Number</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">Power</span><span class="o">+</span><span class="mi">1</span><span class="p" data-group-id="1436529161-3">)</span><span class="p">.</span></code></pre>
   </section>
 </section>
 <section class="detail" id="euclidean_div/2">
@@ -248,7 +305,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">euclidean_div(A, B)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_int.erl#L75" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.13.refce73eed/src/ja_erl_utils_int.erl#L142" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -259,11 +316,27 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> euclidean_div(A :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), B :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> euclidean_div(A :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), B :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> ADivB :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
 
       </div>
 
-
+<p>Calculates the quotient of Euclidean division <code class="inline">A/B</code>.</p><section role="note" class="admonition info"><h4 class="admonition-title info">Euclidean division</h4><p>According to Euclid's division lemma, for any two integers <code class="inline">A</code> and <code class="inline">B</code>,
+such that <code class="inline">B =/= 0</code>, there is a unique pair <code class="inline">Q</code> and <code class="inline">R</code> such that
+<code class="inline">A = Q*B + R</code> and <code class="inline">0 =&lt; R &lt; |B|</code>. This <code class="inline">Q</code> is the quotient of Euclidean
+division and <code class="inline">R</code> is the remainder.</p></section><p>From the lemma it follows that quotient is such integer, that gives the
+largest product <code class="inline">Q*B</code>, which is still not greater than <code class="inline">A</code>. If <code class="inline">B</code> is
+positive, then quotient is the largest integer, which is still not greater
+than the result of floating point division <code class="inline">A/B</code>. If <code class="inline">B</code> is negative, then
+quotient is the smallest integer, which is still not smaller than the
+result of floating point division <code class="inline">A/B</code>. In some cases this result differs
+from the result of Erlang's <code class="inline">div</code> operator:</p><pre><code class="makeup erlang" translate="no"><span class="gp unselectable">&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">euclidean_div</span><span class="p" data-group-id="3838536138-1">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="3838536138-1">)</span><span class="p">.</span><span class="w">
+</span><span class="o">-</span><span class="mi">3</span><span class="gp unselectable">
+2&gt; </span><span class="o">-</span><span class="mi">7</span><span class="w"> </span><span class="ow">div</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w">
+</span><span class="o">-</span><span class="mi">2</span><span class="gp unselectable">
+3&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">euclidean_div</span><span class="p" data-group-id="3838536138-2">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p" data-group-id="3838536138-2">)</span><span class="p">.</span><span class="w">
+</span><span class="mi">3</span><span class="gp unselectable">
+&gt; </span><span class="o">-</span><span class="mi">7</span><span class="w"> </span><span class="ow">div</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="w">
+</span><span class="mi">2</span></code></pre>
   </section>
 </section>
 <section class="detail" id="euclidean_rem/2">
@@ -274,7 +347,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">euclidean_rem(A, B)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_int.erl#L90" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.13.refce73eed/src/ja_erl_utils_int.erl#L172" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -285,22 +358,31 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> euclidean_rem(A :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), B :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> euclidean_rem(A :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), B :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> ARemB :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
 
       </div>
 
-
+<p>Calculates the remainder of Euclidean division <code class="inline">A/B</code>.</p><p>The result is always a non negative integer, which is smaller than absolute
+value of <code class="inline">B</code>. In some cases it differs from the result of Erlang's <code class="inline">rem</code>
+operator:</p><pre><code class="makeup erlang" translate="no"><span class="gp unselectable">1&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">euclidean_rem</span><span class="p" data-group-id="0920678029-1">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="0920678029-1">)</span><span class="p">.</span><span class="w">
+</span><span class="mi">2</span><span class="gp unselectable">
+2&gt; </span><span class="o">-</span><span class="mi">7</span><span class="w"> </span><span class="ow">rem</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w">
+</span><span class="o">-</span><span class="mi">1</span><span class="gp unselectable">
+3&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">euclidean_rem</span><span class="p" data-group-id="0920678029-2">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p" data-group-id="0920678029-2">)</span><span class="p">.</span><span class="w">
+</span><span class="mi">2</span><span class="gp unselectable">
+4&gt; </span><span class="o">-</span><span class="mi">7</span><span class="w"> </span><span class="ow">rem</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="w">
+</span><span class="o">-</span><span class="mi">1</span></code></pre><p>For the definition of Euclidean division, see <a href="#euclidean_div/2"><code class="inline">euclidean_div/2</code></a>.</p>
   </section>
 </section>
-<section class="detail" id="integer_10_pow/1">
+<section class="detail" id="solve_one_equation/1">
 
   <div class="detail-header">
-    <a href="#integer_10_pow/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#solve_one_equation/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">integer_10_pow(Power)</h1>
+    <h1 class="signature" translate="no">solve_one_equation(Equation)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_int.erl#L35" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.13.refce73eed/src/ja_erl_utils_int.erl#L199" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -311,22 +393,31 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> integer_10_pow(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> solve_one_equation(Equation :: {A :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), B :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()}) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>() | any | undefined.</pre>
 
       </div>
 
-
+<p>Solves a single linear equation <code class="inline">A*x = B</code> for integer <code class="inline">x</code>.</p><p>Returns a value of <code class="inline">x</code>, if it is the only integer solution of the equation.
+If there are infinitely many integer solutions (<code class="inline">0*x = 0</code>), returns <code class="inline">any</code>.
+If there are no integer solutions (<code class="inline">2*x = 3</code> or <code class="inline">0*x = 3</code>), returns <code class="inline">undefined</code>.</p><pre><code class="makeup erlang" translate="no"><span class="gp unselectable">1&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">solve_one_equation</span><span class="p" data-group-id="5447287729-1">(</span><span class="p" data-group-id="5447287729-2">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="p" data-group-id="5447287729-2">}</span><span class="p" data-group-id="5447287729-1">)</span><span class="p">.</span><span class="w">
+</span><span class="o">-</span><span class="mi">2</span><span class="gp unselectable">
+2&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">solve_one_equation</span><span class="p" data-group-id="5447287729-3">(</span><span class="p" data-group-id="5447287729-4">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="5447287729-4">}</span><span class="p" data-group-id="5447287729-3">)</span><span class="p">.</span><span class="w">
+</span><span class="ss">any</span><span class="gp unselectable">
+3&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">solve_one_equation</span><span class="p" data-group-id="5447287729-5">(</span><span class="p" data-group-id="5447287729-6">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="5447287729-6">}</span><span class="p" data-group-id="5447287729-5">)</span><span class="p">.</span><span class="w">
+</span><span class="ss">undefined</span><span class="gp unselectable">
+4&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">solve_one_equation</span><span class="p" data-group-id="5447287729-7">(</span><span class="p" data-group-id="5447287729-8">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="5447287729-8">}</span><span class="p" data-group-id="5447287729-7">)</span><span class="p">.</span><span class="w">
+</span><span class="ss">undefined</span></code></pre>
   </section>
 </section>
-<section class="detail" id="integer_digit_count/1">
+<section class="detail" id="solve_two_equations/2">
 
   <div class="detail-header">
-    <a href="#integer_digit_count/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#solve_two_equations/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">integer_digit_count(Int)</h1>
+    <h1 class="signature" translate="no">solve_two_equations(Equation1, Equation2)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_int.erl#L19" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.13.refce73eed/src/ja_erl_utils_int.erl#L244" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -337,22 +428,42 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> integer_digit_count(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> solve_two_equations(Equation1 :: {A1 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), B1 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), C1 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()},
+                          Equation2 :: {A2 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), B2 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), C2 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()}) ->
+                             {X :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>() | any, Y :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>() | any | <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()} | undefined.</pre>
 
       </div>
 
-
+<p>Solves system of two linear equations with two variables for integers.</p><p>For equation system</p><pre><code class="makeup erlang" translate="no"><span class="n">A1</span><span class="o">*</span><span class="ss">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B1</span><span class="o">*</span><span class="ss">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">C1</span><span class="w">
+</span><span class="n">A2</span><span class="o">*</span><span class="ss">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B2</span><span class="o">*</span><span class="ss">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">C2</span></code></pre><p>returns a tuple of <code class="inline">x</code> and <code class="inline">y</code> values, if it is the only solution. If there
+are infinitely many possible integer values for <code class="inline">x</code> or <code class="inline">y</code>, returns <code class="inline">any</code>
+in that position. If <code class="inline">y</code> is dependent on <code class="inline">x</code>, returns <code class="inline">{any, String}</code>,
+where <code class="inline">String</code> is an arithmetic expression, representing <code class="inline">y</code>'s dependency
+on <code class="inline">x</code>. Note, that in such case <code class="inline">x</code> is not any integer, but any integer,
+which makes <code class="inline">y</code> value (<code class="inline">String</code> expression) integer. If the system has no
+integer solutions, returns undefined.</p><pre><code class="makeup erlang" translate="no"><span class="gp unselectable">1&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">solve_two_equations</span><span class="p" data-group-id="2835041170-1">(</span><span class="p" data-group-id="2835041170-2">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="2835041170-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2835041170-3">{</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="p" data-group-id="2835041170-3">}</span><span class="p" data-group-id="2835041170-1">)</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="2835041170-4">{</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p" data-group-id="2835041170-4">}</span><span class="gp unselectable">
+2&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">solve_two_equations</span><span class="p" data-group-id="2835041170-5">(</span><span class="p" data-group-id="2835041170-6">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p" data-group-id="2835041170-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2835041170-7">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="p" data-group-id="2835041170-7">}</span><span class="p" data-group-id="2835041170-5">)</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="2835041170-8">{</span><span class="ss">any</span><span class="p">,</span><span class="mi">2</span><span class="p" data-group-id="2835041170-8">}</span><span class="gp unselectable">
+3&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">solve_two_equations</span><span class="p" data-group-id="2835041170-9">(</span><span class="p" data-group-id="2835041170-10">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="2835041170-10">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2835041170-11">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p" data-group-id="2835041170-11">}</span><span class="p" data-group-id="2835041170-9">)</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="2835041170-12">{</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="ss">any</span><span class="p" data-group-id="2835041170-12">}</span><span class="gp unselectable">
+4&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">solve_two_equations</span><span class="p" data-group-id="2835041170-13">(</span><span class="p" data-group-id="2835041170-14">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="2835041170-14">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2835041170-15">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="2835041170-15">}</span><span class="p" data-group-id="2835041170-13">)</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="2835041170-16">{</span><span class="ss">any</span><span class="p">,</span><span class="ss">any</span><span class="p" data-group-id="2835041170-16">}</span><span class="gp unselectable">
+5&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">solve_two_equations</span><span class="p" data-group-id="2835041170-17">(</span><span class="p" data-group-id="2835041170-18">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="2835041170-18">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2835041170-19">{</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="p" data-group-id="2835041170-19">}</span><span class="p" data-group-id="2835041170-17">)</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="2835041170-20">{</span><span class="ss">any</span><span class="p">,</span><span class="s">&quot;(3 - 1*x)/2&quot;</span><span class="p" data-group-id="2835041170-20">}</span><span class="gp unselectable">
+6&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">solve_two_equations</span><span class="p" data-group-id="2835041170-21">(</span><span class="p" data-group-id="2835041170-22">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="2835041170-22">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2835041170-23">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="p" data-group-id="2835041170-23">}</span><span class="p" data-group-id="2835041170-21">)</span><span class="p">.</span><span class="w">
+</span><span class="ss">undefined</span></code></pre>
   </section>
 </section>
-<section class="detail" id="solve_one_equation_int/1">
+<section class="detail" id="split/2">
 
   <div class="detail-header">
-    <a href="#solve_one_equation_int/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#split/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">solve_one_equation_int(_)</h1>
+    <h1 class="signature" translate="no">split(Integer, Split)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_int.erl#L106" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.13.refce73eed/src/ja_erl_utils_int.erl#L106" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -363,22 +474,26 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> solve_one_equation_int({A :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), B :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()}) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>() | any | undefined.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> split(Integer :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), Split :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) ->
+               {IntStart :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), IntEnd :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()} | undefined.</pre>
 
       </div>
 
-
+<p>Splits integer <code class="inline">Integer</code> into two integers, so that the second integer
+contains <code class="inline">Split</code> last digits of the initial integer and the first integer
+contains the rest digits.</p><pre><code class="makeup erlang" translate="no"><span class="gp unselectable">&gt; </span><span class="nc">ja_erl_utils_int</span><span class="p">:</span><span class="nf">split</span><span class="p" data-group-id="0954546115-1">(</span><span class="mi">12345</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="0954546115-1">)</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="0954546115-2">{</span><span class="mi">123</span><span class="p">,</span><span class="mi">45</span><span class="p" data-group-id="0954546115-2">}</span></code></pre><p>Returns <code class="inline">undefined</code>, if <code class="inline">Integer</code> does not contain more digits than <code class="inline">Split</code>.</p>
   </section>
 </section>
-<section class="detail" id="solve_two_equations_int/2">
+<section class="detail" id="ten_pow/1">
 
   <div class="detail-header">
-    <a href="#solve_two_equations_int/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#ten_pow/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">solve_two_equations_int(_, _)</h1>
+    <h1 class="signature" translate="no">ten_pow(Power)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_int.erl#L133" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.13.refce73eed/src/ja_erl_utils_int.erl#L70" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -389,39 +504,19 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> solve_two_equations_int({A1 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), B1 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), C1 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()},
-                              {A2 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), B2 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), C2 :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()}) ->
-                                 {X :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>() | any, Y :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>() | any | <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()} | undefined.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> ten_pow(Power :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> TenToThePower :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
 
       </div>
 
-
-  </section>
-</section>
-<section class="detail" id="split_integer/2">
-
-  <div class="detail-header">
-    <a href="#split_integer/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <h1 class="signature" translate="no">split_integer(Int, Split)</h1>
-
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.11.refb26c688/src/ja_erl_utils_int.erl#L62" class="icon-action" rel="help" aria-label="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">-spec</span> split_integer(Int :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), Split :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()) -> {<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()} | undefined.</pre>
-
-      </div>
-
-
+<p>Returns <code class="inline">Power</code>'th power of <code class="inline">10</code> (<code class="inline">10^Power</code>). This function differs from
+<a href="https://www.erlang.org/doc/apps/stdlib/math.html#pow/2"><code class="inline">math:pow/2</code></a> as it returns an integer.</p><p>To obtain the result, this function uses <a href="https://www.erlang.org/doc/apps/stdlib/math.html#pow/2"><code class="inline">math:pow/2</code></a>, which returns a
+floating point number. Converting floats to integers might cause errors due
+to loss of precision. To combat this, <a href="https://www.erlang.org/doc/apps/stdlib/math.html#pow/2"><code class="inline">math:pow/2</code></a> is applied only to
+sufficiently small powers (less than <code class="inline">12</code>). Larger powers are calculated
+by multiplying (using integer multiplication, which is lossless) smaller
+power, that fit this interval, by <code class="inline">10^12</code> as many times as needed.</p><p>Implementation, using string concatenation and transformation to integer
+was also considered, but it appeared to be much slower:</p><pre><code class="makeup erlang" translate="no"><span class="nc">erlang</span><span class="p">:</span><span class="nf">list_to_integer</span><span class="p" data-group-id="9242515968-1">(</span><span class="nc">lists</span><span class="p">:</span><span class="nf">append</span><span class="p" data-group-id="9242515968-2">(</span><span class="p" data-group-id="9242515968-3">[</span><span class="s">&quot;1&quot;</span><span class="p">|</span><span class="nc">lists</span><span class="p">:</span><span class="nf">duplicate</span><span class="p" data-group-id="9242515968-4">(</span><span class="n">Power</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p" data-group-id="9242515968-4">)</span><span class="p" data-group-id="9242515968-3">]</span><span class="p" data-group-id="9242515968-2">)</span><span class="p" data-group-id="9242515968-1">)</span></code></pre><p>TODO: Try recursive solution with single digit step, accumulating the result:</p><pre><code class="makeup erlang" translate="no"><span class="nf">fun</span><span class="p" data-group-id="2424992117-1">(</span><span class="mi">0</span><span class="p">,</span><span class="w">     </span><span class="n">Number</span><span class="p" data-group-id="2424992117-1">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Number</span><span class="p">;</span><span class="w">
+</span><span class="nf">fun</span><span class="p" data-group-id="2424992117-2">(</span><span class="n">Power</span><span class="p">,</span><span class="w"> </span><span class="n">Number</span><span class="p" data-group-id="2424992117-2">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nf">fun</span><span class="p" data-group-id="2424992117-3">(</span><span class="n">Power</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Number</span><span class="o">*</span><span class="mi">10</span><span class="p" data-group-id="2424992117-3">)</span><span class="p">.</span></code></pre>
   </section>
 </section>
 
