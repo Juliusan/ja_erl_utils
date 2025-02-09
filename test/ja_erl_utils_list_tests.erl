@@ -21,29 +21,125 @@ count_elems_start_test_() ->
     ].
 
 
+is_strictly_increasing_test_() ->
+    [
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_increasing([]                  )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_increasing([20]                )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_increasing([20, 21, 22, 23, 24])),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_increasing([20, 21, 22, 23, 19])),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_increasing([20, 21, 22, 22, 23])),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_increasing([20, 19, 21, 23, 25])),
+
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_increasing([],                   1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_increasing([20],                 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_increasing([20, 21, 22, 23, 24], 1)),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_increasing([20, 21, 22, 23, 22], 1)),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_increasing([20, 21, 22, 25, 28], 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_increasing([20, 21, 22, 23, 24], 3)),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_increasing([20, 21, 22, 22, 23], 3)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_increasing([20, 21, 22, 25, 28], 3)),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_increasing([20, 25, 26, 27, 28], 3)),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_increasing([20, 19, 21, 23, 25], 3))
+    ].
+
+
+is_increasing_test_() ->
+    [
+        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([]                  )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20]                )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20, 21, 22, 23, 24])),
+        ?_assertEqual(false, ja_erl_utils_list:is_increasing([20, 21, 22, 23, 19])),
+        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20, 21, 22, 22, 23])),
+        ?_assertEqual(false, ja_erl_utils_list:is_increasing([20, 19, 21, 23, 25])),
+
+        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([],                   1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20],                 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20, 21, 22, 23, 24], 1)),
+        ?_assertEqual(false, ja_erl_utils_list:is_increasing([20, 21, 22, 23, 22], 1)),
+        ?_assertEqual(false, ja_erl_utils_list:is_increasing([20, 21, 22, 25, 28], 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20, 21, 22, 23, 24], 3)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20, 21, 22, 22, 23], 3)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20, 21, 22, 25, 28], 3)),
+        ?_assertEqual(false, ja_erl_utils_list:is_increasing([20, 25, 26, 27, 28], 3)),
+        ?_assertEqual(false, ja_erl_utils_list:is_increasing([20, 19, 21, 23, 25], 3))
+    ].
+
+
+is_strictly_decreasing_test_() ->
+    [
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_decreasing([]                  )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_decreasing([20]                )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_decreasing([20, 19, 18, 17, 16])),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_decreasing([20, 19, 18, 17, 21])),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_decreasing([20, 19, 18, 18, 17])),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_decreasing([20, 21, 19, 17, 15])),
+
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_decreasing([],                   1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_decreasing([20],                 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_decreasing([20, 19, 18, 17, 16], 1)),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_decreasing([20, 19, 18, 17, 21], 1)),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_decreasing([20, 19, 18, 15, 12], 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_decreasing([20, 19, 18, 17, 16], 3)),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_decreasing([20, 19, 18, 18, 17], 3)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_strictly_decreasing([20, 19, 18, 15, 12], 3)),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_decreasing([20, 15, 14, 13, 12], 3)),
+        ?_assertEqual(false, ja_erl_utils_list:is_strictly_decreasing([20, 21, 19, 17, 15], 3))
+    ].
+
+
 is_decreasing_test_() ->
     [
+        ?_assertEqual(true,  ja_erl_utils_list:is_decreasing([]                  )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_decreasing([20]                )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_decreasing([20, 19, 18, 17, 16])),
+        ?_assertEqual(false, ja_erl_utils_list:is_decreasing([20, 19, 18, 17, 21])),
+        ?_assertEqual(true,  ja_erl_utils_list:is_decreasing([20, 19, 18, 18, 17])),
+        ?_assertEqual(false, ja_erl_utils_list:is_decreasing([20, 21, 19, 17, 15])),
+
         ?_assertEqual(true,  ja_erl_utils_list:is_decreasing([],                   1)),
         ?_assertEqual(true,  ja_erl_utils_list:is_decreasing([20],                 1)),
         ?_assertEqual(true,  ja_erl_utils_list:is_decreasing([20, 19, 18, 17, 16], 1)),
+        ?_assertEqual(false, ja_erl_utils_list:is_decreasing([20, 19, 18, 17, 21], 1)),
         ?_assertEqual(false, ja_erl_utils_list:is_decreasing([20, 19, 18, 15, 12], 1)),
         ?_assertEqual(true,  ja_erl_utils_list:is_decreasing([20, 19, 18, 17, 16], 3)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_decreasing([20, 19, 18, 18, 17], 3)),
         ?_assertEqual(true,  ja_erl_utils_list:is_decreasing([20, 19, 18, 15, 12], 3)),
         ?_assertEqual(false, ja_erl_utils_list:is_decreasing([20, 15, 14, 13, 12], 3)),
         ?_assertEqual(false, ja_erl_utils_list:is_decreasing([20, 21, 19, 17, 15], 3))
     ].
 
 
-is_increasing_test_() ->
+is_steady_test_() ->
     [
-        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([],                   1)),
-        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20],                 1)),
-        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20, 21, 22, 23, 24], 1)),
-        ?_assertEqual(false, ja_erl_utils_list:is_increasing([20, 21, 22, 25, 28], 1)),
-        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20, 21, 22, 23, 24], 3)),
-        ?_assertEqual(true,  ja_erl_utils_list:is_increasing([20, 21, 22, 25, 28], 3)),
-        ?_assertEqual(false, ja_erl_utils_list:is_increasing([20, 25, 26, 27, 28], 3)),
-        ?_assertEqual(false, ja_erl_utils_list:is_increasing([20, 19, 21, 23, 25], 3))
+        ?_assertEqual(true,  ja_erl_utils_list:is_steady([],                   1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_steady([20],                 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_steady([20, 21, 22, 23, 24], 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_steady([20, 19, 18, 17, 16], 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_steady([20, 19, 20, 21, 20], 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_steady([20, 19, 19, 20, 21], 1)),
+        ?_assertEqual(false, ja_erl_utils_list:is_steady([20, 19, 21, 20, 19], 1)),
+        ?_assertEqual(false, ja_erl_utils_list:is_steady([20, 18, 19, 20, 19], 1)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_steady([20, 21, 23, 26, 27], 3)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_steady([20, 19, 17, 14, 13], 3)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_steady([20, 21, 19, 22, 21], 3)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_steady([20, 21, 21, 19, 22], 3)),
+        ?_assertEqual(false, ja_erl_utils_list:is_steady([20, 21, 19, 23, 22], 3)),
+        ?_assertEqual(false, ja_erl_utils_list:is_steady([20, 21, 19, 22, 18], 3))
+    ].
+
+
+is_monotonic_test_() ->
+    Mul3Fun = fun(Elem1, Elem2) -> Elem2 =:= 3*Elem1 end,
+    MulRangeFun = fun(Elem1, Elem2) -> abs(Elem2) < abs(3*Elem1) end,
+    [
+        ?_assertEqual(true,  ja_erl_utils_list:is_monotonic([],                  Mul3Fun    )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_monotonic([1],                 Mul3Fun    )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_monotonic([1, 3, 9, 27, 81],   Mul3Fun    )),
+        ?_assertEqual(false, ja_erl_utils_list:is_monotonic([1, 3, 9, 26, 78],   Mul3Fun    )),
+        ?_assertEqual(true,  ja_erl_utils_list:is_monotonic([],                  MulRangeFun)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_monotonic([1],                 MulRangeFun)),
+        ?_assertEqual(true,  ja_erl_utils_list:is_monotonic([1, -2, -5, 10, 11], MulRangeFun)),
+        ?_assertEqual(false, ja_erl_utils_list:is_monotonic([1, -3, -5, 10, 11], MulRangeFun))
     ].
 
 
@@ -130,35 +226,35 @@ foldl_pairs_test_() ->
     ].
 
 
-list_map_sum_test_() ->
+map_sum_test_() ->
     [
-        ?_assertEqual(0,  ja_erl_utils_list:list_map_sum(fun(A) -> A-$0 end, [              ])),
-        ?_assertEqual(1,  ja_erl_utils_list:list_map_sum(fun(A) -> A-$0 end, [$1            ])),
-        ?_assertEqual(10, ja_erl_utils_list:list_map_sum(fun(A) -> A-$0 end, [$1, $2, $3, $4]))
+        ?_assertEqual(0,  ja_erl_utils_list:map_sum(fun(A) -> A-$0 end, [              ])),
+        ?_assertEqual(1,  ja_erl_utils_list:map_sum(fun(A) -> A-$0 end, [$1            ])),
+        ?_assertEqual(10, ja_erl_utils_list:map_sum(fun(A) -> A-$0 end, [$1, $2, $3, $4]))
     ].
 
 
-list_filter_count_test_() ->
+map_sum_foldl_test_() ->
     [
-        ?_assertEqual(0, ja_erl_utils_list:list_filter_count(fun(_) -> true               end, [                  ])),
-        ?_assertEqual(0, ja_erl_utils_list:list_filter_count(fun(A) -> (A-$0) rem 2 =:= 0 end, [$1                ])),
-        ?_assertEqual(1, ja_erl_utils_list:list_filter_count(fun(A) -> (A-$0) rem 2 =:= 0 end, [$2                ])),
-        ?_assertEqual(2, ja_erl_utils_list:list_filter_count(fun(A) -> (A-$0) rem 2 =:= 0 end, [$1, $2, $3, $4, $5]))
+        ?_assertEqual({0, 10}, ja_erl_utils_list:map_sum_foldl(fun(A, B) -> {B*(A-$0), B-1} end, 10, [              ])),
+        ?_assertEqual({10, 9}, ja_erl_utils_list:map_sum_foldl(fun(A, B) -> {B*(A-$0), B-1} end, 10, [$1            ])),
+        ?_assertEqual({80, 6}, ja_erl_utils_list:map_sum_foldl(fun(A, B) -> {B*(A-$0), B-1} end, 10, [$1, $2, $3, $4]))
     ].
 
 
-list_foldl_sum_test_() ->
+filter_count_test_() ->
     [
-        ?_assertEqual({0, 10}, ja_erl_utils_list:list_foldl_sum(fun(A, B) -> {B*(A-$0), B-1} end, 10, [              ])),
-        ?_assertEqual({10, 9}, ja_erl_utils_list:list_foldl_sum(fun(A, B) -> {B*(A-$0), B-1} end, 10, [$1            ])),
-        ?_assertEqual({80, 6}, ja_erl_utils_list:list_foldl_sum(fun(A, B) -> {B*(A-$0), B-1} end, 10, [$1, $2, $3, $4]))
+        ?_assertEqual(0, ja_erl_utils_list:filter_count(fun(_) -> true               end, [                  ])),
+        ?_assertEqual(0, ja_erl_utils_list:filter_count(fun(A) -> (A-$0) rem 2 =:= 0 end, [$1                ])),
+        ?_assertEqual(1, ja_erl_utils_list:filter_count(fun(A) -> (A-$0) rem 2 =:= 0 end, [$2                ])),
+        ?_assertEqual(2, ja_erl_utils_list:filter_count(fun(A) -> (A-$0) rem 2 =:= 0 end, [$1, $2, $3, $4, $5]))
     ].
 
 
-list_foldl_count_test_() ->
+filter_count_foldl_test_() ->
     [
-        ?_assertEqual({0, 10}, ja_erl_utils_list:list_foldl_count(fun(A, B) -> {B*(A-$0) rem 2 =:= 0, B-1} end, 10, [              ])),
-        ?_assertEqual({0, 10}, ja_erl_utils_list:list_foldl_count(fun(A, B) -> {B*(A-$0) rem 2 =:= 0, B-1} end, 11, [$1            ])),
-        ?_assertEqual({1,  9}, ja_erl_utils_list:list_foldl_count(fun(A, B) -> {B*(A-$0) rem 2 =:= 0, B-1} end, 10, [$2            ])),
-        ?_assertEqual({3,  6}, ja_erl_utils_list:list_foldl_count(fun(A, B) -> {B*(A-$0) rem 2 =:= 0, B-1} end, 10, [$1, $2, $4, $5]))
+        ?_assertEqual({0, 10}, ja_erl_utils_list:filter_count_foldl(fun(A, B) -> {B*(A-$0) rem 2 =:= 0, B-1} end, 10, [              ])),
+        ?_assertEqual({0, 10}, ja_erl_utils_list:filter_count_foldl(fun(A, B) -> {B*(A-$0) rem 2 =:= 0, B-1} end, 11, [$1            ])),
+        ?_assertEqual({1,  9}, ja_erl_utils_list:filter_count_foldl(fun(A, B) -> {B*(A-$0) rem 2 =:= 0, B-1} end, 10, [$2            ])),
+        ?_assertEqual({3,  6}, ja_erl_utils_list:filter_count_foldl(fun(A, B) -> {B*(A-$0) rem 2 =:= 0, B-1} end, 10, [$1, $2, $4, $5]))
     ].

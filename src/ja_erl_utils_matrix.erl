@@ -3,8 +3,9 @@
 -export([get_new_matrix/2, get_char_matrix/1]).
 -export([matrix_index_of/2, matrix_is_valid_index/2, matrix_next_index/3, matrix_foldl/4]).
 -export([direction_all/0, direction_reverse/1, direction_clockwise/1, direction_counterclockwise/1]).
+-export_type([matrix/1]).
 
--type matrix(Type) :: #{matrix_index() => Type}.
+-opaque matrix(Type) :: #{matrix_index() => Type}.
 -type matrix_index() :: {Row :: integer(), Column :: integer()}.
 -type matrix_direction() :: up | right | down | left.
 

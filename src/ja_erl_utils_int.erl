@@ -134,7 +134,7 @@ split(Integer, Split) when Integer > 9, Split > 0 ->
         -2
         3> ja_erl_utils_int:euclidean_div(-7, -3).
         3
-        > -7 div -3.
+        4> -7 div -3.
         2
     """.
 -spec euclidean_div(A :: integer(), B :: integer()) -> ADivB :: integer().
