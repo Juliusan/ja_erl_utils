@@ -216,8 +216,8 @@ is_monotonic([Elem1, Elem2|List], Fun) ->
     Transposes a matrix `ListOfLists` represented as list of lists.
 
     Transposition is flipping matrix over its diagonal:
-        1> ja_erl_utils_list:transpose([[1, 2],
-                                        [3, 4]]).
+        > ja_erl_utils_list:transpose([[1, 2],
+                                       [3, 4]]).
         [[1,3],[2,4]]
     This function is defined only if each list in `ListOfLists` is of the same
     size.
@@ -238,8 +238,8 @@ transpose(ListOfLists) -> [lists:map(fun erlang:hd/1, ListOfLists) | transpose(l
     Diagonals are returned in reverse order (starting from the bottom right
     corner and ending with the top left corner). Moreover, each returned
     diagonal is reversed (from the bottom left element to the top right one):
-        1> ja_erl_utils_list:diagonals_f([[1, 2],
-                                          [3, 4]]).
+        > ja_erl_utils_list:diagonals_f([[1, 2],
+                                         [3, 4]]).
         [[4],[3,2],[1]]
     This function is defined only if each list in `ListOfLists` is of the same
     size.
@@ -273,8 +273,8 @@ diagonal_f([[Elem|List]|ListOfLists], Index, AccDiagonal, AccListOfLists) -> dia
     Diagonals are returned starting from the bottom left corner and ending with
     the top right corner. Moreover, each returned diagonal is reversed (from
     the bottom right element to the top left one):
-        1> ja_erl_utils_list:diagonals_b([[1, 2],
-                                          [3, 4]]).
+        > ja_erl_utils_list:diagonals_b([[1, 2],
+                                         [3, 4]]).
         [[3],[4,1],[2]]
     This function is defined only if each list in `ListOfLists` is of the same
     size.
@@ -397,9 +397,9 @@ foldl_pairs(Fun, Acc0, Elem1, [Elem2|List]) ->
         Sum      :: number(),
         ElemType :: term().
 
-map_sum(MapFun, List) ->
+map_sum(Fun, List) ->
     lists:foldl(fun(Elem, Acc) ->
-        Acc + MapFun(Elem)
+        Acc + Fun(Elem)
     end, 0, List).
 
 
@@ -425,11 +425,11 @@ map_sum(MapFun, List) ->
         ElemType :: term(),
         AccType  :: term().
 
-map_sum_foldl(FoldFun, InitAcc, List) ->
+map_sum_foldl(Fun, Acc0, List) ->
     lists:foldl(fun(Elem, {AccSum, Acc}) ->
-        {MapResult, NewAcc} = FoldFun(Elem, Acc),
+        {MapResult, NewAcc} = Fun(Elem, Acc),
         {AccSum + MapResult, NewAcc}
-    end, {0, InitAcc}, List).
+    end, {0, Acc0}, List).
 
 
 %%
@@ -449,9 +449,9 @@ map_sum_foldl(FoldFun, InitAcc, List) ->
         Count    :: number(),
         ElemType :: term().
 
-filter_count(FilterFun, List) ->
+filter_count(Pred, List) ->
     map_sum(fun(Elem) ->
-        case FilterFun(Elem) of
+        case Pred(Elem) of
             true  -> 1;
             false -> 0
         end
@@ -467,9 +467,9 @@ filter_count(FilterFun, List) ->
         {erlang:length(lists:filter(fun(E) -> E end, ListMapped)), Acc1}.
     Except that `List` is traversed only once.
     """.
--spec filter_count_foldl(Fun, Acc0, List) -> {Count, Acc1}
+-spec filter_count_foldl(Pred, Acc0, List) -> {Count, Acc1}
     when
-        Fun      :: fun((Elem, AccIn) -> {boolean(), AccOut}),
+        Pred     :: fun((Elem, AccIn) -> {boolean(), AccOut}),
         Acc0     :: AccType,
         Acc1     :: AccType,
         AccIn    :: AccType,
@@ -480,10 +480,10 @@ filter_count(FilterFun, List) ->
         ElemType :: term(),
         AccType  :: term().
 
-filter_count_foldl(FilterFun, InitAcc, List) ->
+filter_count_foldl(Pred, Acc0, List) ->
     map_sum_foldl(fun(Elem, Acc) ->
-        case FilterFun(Elem, Acc) of
+        case Pred(Elem, Acc) of
             {true,  NewAcc} -> {1, NewAcc};
             {false, NewAcc} -> {0, NewAcc}
         end
-    end, InitAcc, List).
+    end, Acc0, List).

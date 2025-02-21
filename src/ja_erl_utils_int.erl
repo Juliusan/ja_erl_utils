@@ -75,7 +75,7 @@ ten_pow(Power) when             Power >= ?CUT_INTEGER_POWER -> ten_pow(Power-?CU
 -doc """
     Returns an integer, which results from concatenating second parameter to
     the end of the first parameter
-        1> ja_erl_utils_int:concat(123, 456).
+        > ja_erl_utils_int:concat(123, 456).
         123456
     """.
 -spec concat(IntStart :: integer(), IntEnd :: integer()) ->
@@ -156,13 +156,13 @@ euclidean_div(A, B) when A<0 ->
     The result is always a non negative integer, which is smaller than absolute
     value of `B`. In some cases it differs from the result of Erlang's `rem`
     operator:
-        1> ja_erl_utils_int:euclidean_rem(-7, 3).
+        > ja_erl_utils_int:euclidean_rem(-7, 3).
         2
-        2> -7 rem 3.
+        > -7 rem 3.
         -1
-        3> ja_erl_utils_int:euclidean_rem(-7, -3).
+        > ja_erl_utils_int:euclidean_rem(-7, -3).
         2
-        4> -7 rem -3.
+        > -7 rem -3.
         -1
 
     For the definition of Euclidean division, see `euclidean_div/2`.
@@ -184,13 +184,13 @@ euclidean_rem(A, B) ->
     Returns a value of `x`, if it is the only integer solution of the equation.
     If there are infinitely many integer solutions (`0*x = 0`), returns `any`.
     If there are no integer solutions (`2*x = 3` or `0*x = 3`), returns `undefined`.
-        1> ja_erl_utils_int:solve_one_equation({2, -4}).
+        > ja_erl_utils_int:solve_one_equation({2, -4}).
         -2
-        2> ja_erl_utils_int:solve_one_equation({0, 0}).
+        > ja_erl_utils_int:solve_one_equation({0, 0}).
         any
-        3> ja_erl_utils_int:solve_one_equation({2, 3}).
+        > ja_erl_utils_int:solve_one_equation({2, 3}).
         undefined
-        4> ja_erl_utils_int:solve_one_equation({0, 3}).
+        > ja_erl_utils_int:solve_one_equation({0, 3}).
         undefined
     """.
 -spec solve_one_equation(Equation :: {A :: integer(), B :: integer()}) ->
@@ -219,17 +219,17 @@ solve_one_equation({A, B}) ->
     on `x`. Note, that in such case `x` is not any integer, but any integer,
     which makes `y` value (`String` expression) integer. If the system has no
     integer solutions, returns undefined.
-        1> ja_erl_utils_int:solve_two_equations({3, 4, 2}, {-2, 1, -5}).
+        > ja_erl_utils_int:solve_two_equations({3, 4, 2}, {-2, 1, -5}).
         {2,-1}
-        2> ja_erl_utils_int:solve_two_equations({0, 2, 4}, {0, -3, -6}).
+        > ja_erl_utils_int:solve_two_equations({0, 2, 4}, {0, -3, -6}).
         {any,2}
-        3> ja_erl_utils_int:solve_two_equations({0, 0, 0}, {1, 0, -2}).
+        > ja_erl_utils_int:solve_two_equations({0, 0, 0}, {1, 0, -2}).
         {-2,any}
-        4> ja_erl_utils_int:solve_two_equations({0, 0, 0}, {0, 0, 0}).
+        > ja_erl_utils_int:solve_two_equations({0, 0, 0}, {0, 0, 0}).
         {any,any}
-        5> ja_erl_utils_int:solve_two_equations({1, 2, 3}, {-2, -4, -6}).
+        > ja_erl_utils_int:solve_two_equations({1, 2, 3}, {-2, -4, -6}).
         {any,"(3 - 1*x)/2"}
-        6> ja_erl_utils_int:solve_two_equations({1, -2, 3}, {-1, -3, -5}).
+        > ja_erl_utils_int:solve_two_equations({1, -2, 3}, {-1, -3, -5}).
         undefined
     """.
 -spec solve_two_equations(
