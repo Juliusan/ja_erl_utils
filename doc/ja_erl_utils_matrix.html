@@ -14,7 +14,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-1A12D8A6.js"></script>
+    <script src="dist/sidebar_items-5ADA38BA.js"></script>
     <script src="docs_config.js"></script>
     <script async src="dist/html-PVRIOB7F.js"></script>
 
@@ -112,7 +112,7 @@ Pages
 <div id="top-content">
   <h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L1" title="View Source" class="icon-action" rel="help">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L16" title="View Source" class="icon-action" rel="help">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -122,6 +122,10 @@ Pages
 
   </h1>
 
+
+    <section id="moduledoc">
+<p>Module for working with matrices: tables of data.</p><p>For a definition of matrix see <a href="#t:matrix/1"><code class="inline">matrix/1</code></a>.</p>
+    </section>
 
 </div>
 
@@ -139,25 +143,51 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#t:matrix/1" data-no-tooltip translate="no">matrix/1</a>
+        <a href="#t:direction/0" data-no-tooltip translate="no">direction()</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Direction to move to the next matrix cell.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#t:matrix_direction/0" data-no-tooltip translate="no">matrix_direction/0</a>
+        <a href="#t:index/0" data-no-tooltip translate="no">index()</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Index of a matrix cell, composing of cell's row <code class="inline">Row</code> and column <code class="inline">Column</code>.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#t:matrix_index/0" data-no-tooltip translate="no">matrix_index/0</a>
+        <a href="#t:iteration_opts/0" data-no-tooltip translate="no">iteration_opts()</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Options that affect the order of iteration through the matrix.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:iterator/1" data-no-tooltip translate="no">iterator(Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>An iterator to iterate through (possibly part of) matrix.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:matrix/1" data-no-tooltip translate="no">matrix(Type)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A matrix is a table of data of type <code class="inline">Type</code>.</p></div>
 
     </div>
 
@@ -169,33 +199,117 @@ Pages
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#dimensions/1" data-no-tooltip translate="no">dimensions(Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns matrix dimensions: row count <code class="inline">Rows</code> and column count <code class="inline">Columns</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#direction_all/0" data-no-tooltip translate="no">direction_all()</a>
 
+          <span class="deprecated" title="ja_erl_utils_matrix:direction_all/0 is deprecated; Use ?DIRECTIONS_ALL macro of ja_erl_utils_matrix.hrl instead">deprecated</span>
+
       </div>
+
+        <div class="summary-synopsis"><p>Returns all possible directions.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#direction_clockwise/1" data-no-tooltip translate="no">direction_clockwise(_)</a>
+        <a href="#direction_clockwise/1" data-no-tooltip translate="no">direction_clockwise(Direction)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Returns direction after a clockwise turn from <code class="inline">Direction</code>.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#direction_counterclockwise/1" data-no-tooltip translate="no">direction_counterclockwise(_)</a>
+        <a href="#direction_counterclockwise/1" data-no-tooltip translate="no">direction_counterclockwise(Direction)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Returns direction after a counterclockwise turn from <code class="inline">Direction</code>.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#direction_reverse/1" data-no-tooltip translate="no">direction_reverse(_)</a>
+        <a href="#direction_reverse/1" data-no-tooltip translate="no">direction_reverse(Direction)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Returns opposite direction of <code class="inline">Direction</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#filter_count/2" data-no-tooltip translate="no">filter_count(Pred, Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Filters cells of matrix <code class="inline">Matrix</code> using function (predicate) <code class="inline">Pred</code> and
+counts the remaining ones.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#filter_count_foldf/3" data-no-tooltip translate="no">filter_count_foldf(Pred, Acc0, Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Combines <a href="#filter_count/2"><code class="inline">filter_count/2</code></a> and <a href="#foldf/3"><code class="inline">foldf/3</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#fold/4" data-no-tooltip translate="no">fold(Fun, Acc0, Matrix, Opts)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Folds through cells of matrix <code class="inline">Matrix</code> using function <code class="inline">Fun</code> and initial
+accumulator <code class="inline">Acc0</code>. Order of fold is defined in <code class="inline">Opts</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#foldb/3" data-no-tooltip translate="no">foldb(Fun, Acc0, Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Folds back through cells of matrix <code class="inline">Matrix</code> using function <code class="inline">Fun</code> and
+initial accumulator <code class="inline">Acc0</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#foldf/3" data-no-tooltip translate="no">foldf(Fun, Acc0, Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Folds forward through cells of matrix <code class="inline">Matrix</code> using function <code class="inline">Fun</code> and
+initial accumulator <code class="inline">Acc0</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#get/2" data-no-tooltip translate="no">get(Index, Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns value of the cell at index <code class="inline">Index</code> of matrix <code class="inline">Matrix</code>.</p></div>
 
     </div>
 
@@ -205,53 +319,155 @@ Pages
 
       </div>
 
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#get_new_matrix/2" data-no-tooltip translate="no">get_new_matrix(Elem, Dimensions)</a>
-
-      </div>
+        <div class="summary-synopsis"><p>Converts list of lines <code class="inline">Lines</code> to a matrix, with each character as a
+separate cell.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#matrix_foldl/4" data-no-tooltip translate="no">matrix_foldl(FoldFun, AccIn, Matrix, Dimensions)</a>
+        <a href="#index_of/2" data-no-tooltip translate="no">index_of(Value, Matrix)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Returns the index of cell with value <code class="inline">Value</code> in matrix <code class="inline">Matrix</code>.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#matrix_index_of/2" data-no-tooltip translate="no">matrix_index_of(Elem, Matrix)</a>
+        <a href="#is_valid_index/2" data-no-tooltip translate="no">is_valid_index(Index, Matrix)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Returns <code class="inline">true</code> if index <code class="inline">Index</code> is in matrix <code class="inline">Matrix</code>. Otherwise returns
+<code class="inline">false</code>.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#matrix_is_valid_index/2" data-no-tooltip translate="no">matrix_is_valid_index(CurrentIndex, Dimensions)</a>
+        <a href="#iterator/1" data-no-tooltip translate="no">iterator(Matrix)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Returns matrix <code class="inline">Matrix</code> iterator with default iteration options.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#matrix_next_index/3" data-no-tooltip translate="no">matrix_next_index(CurrentIndex, Direction, Dimensions)</a>
+        <a href="#iterator/2" data-no-tooltip translate="no">iterator(Matrix, Opts)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Returns matrix <code class="inline">Matrix</code> iterator with iteration options <code class="inline">Opts</code>.</p></div>
 
     </div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#print_char_matrix/2" data-no-tooltip translate="no">print_char_matrix(Matrix, Dimensions)</a>
+        <a href="#map/2" data-no-tooltip translate="no">map(Fun, Matrix1)</a>
 
       </div>
+
+        <div class="summary-synopsis"><p>Maps every cell of matrix <code class="inline">Matrix</code> using function <code class="inline">Fun</code> and returns new
+matrix with mapped values.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#map_sum/2" data-no-tooltip translate="no">map_sum(Fun, Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Maps every cell of matrix <code class="inline">Matrix</code> to a number using function <code class="inline">Fun</code> and
+adds those numbers.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#map_sum_foldf/3" data-no-tooltip translate="no">map_sum_foldf(Fun, Acc0, Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Combines <a href="#map_sum/2"><code class="inline">map_sum/2</code></a> and <a href="#foldf/3"><code class="inline">foldf/3</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#new/2" data-no-tooltip translate="no">new(Rows, Columns)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns a new matrix with <code class="inline">Rows</code> rows and <code class="inline">Columns</code> columns and with all
+cells filled by <code class="inline">undefined</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#new/3" data-no-tooltip translate="no">new(Rows, Columns, Default)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns a new matrix with <code class="inline">Rows</code> rows and <code class="inline">Columns</code> columns and with all
+the cells filled by <code class="inline">Default</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#next/1" data-no-tooltip translate="no">next(Iterator)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns next index and value according to iterator <code class="inline">Iterator</code> and a new
+iterator for remaining data.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#next_index/3" data-no-tooltip translate="no">next_index(Index, Direction, Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns index of the next cell of matrix <code class="inline">Matrix</code>, starting with index
+<code class="inline">Index</code> in direction <code class="inline">Direction</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#print_char_matrix/1" data-no-tooltip translate="no">print_char_matrix(Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Outputs matrix <code class="inline">Matrix</code> of characters to terminal.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#set/3" data-no-tooltip translate="no">set(Index, Matrix1, Value)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Sets value of the cell at index <code class="inline">Index</code> of matrix <code class="inline">Matrix</code> to <code class="inline">Value</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#values/1" data-no-tooltip translate="no">values(Matrix)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns list of all the cell values of matrix <code class="inline">Matrix</code>.</p></div>
 
     </div>
 
@@ -268,15 +484,126 @@ Pages
       <span class="text">Types</span>
     </h1>
     <div class="types-list">
+<section class="detail" id="t:direction/0">
+
+  <div class="detail-header">
+    <a href="#t:direction/0" class="detail-link" data-no-tooltip aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">direction()</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L63" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-type</span> direction() :: up | right | down | left.</pre>
+
+      </div>
+
+<p>Direction to move to the next matrix cell.</p>
+  </section>
+</section>
+<section class="detail" id="t:index/0">
+
+  <div class="detail-header">
+    <a href="#t:index/0" class="detail-link" data-no-tooltip aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">index()</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L59" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-type</span> index() :: {Row :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), Column :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()}.</pre>
+
+      </div>
+
+<p>Index of a matrix cell, composing of cell's row <code class="inline">Row</code> and column <code class="inline">Column</code>.</p><p>The index is unique for each cell. Each matrix cell can be effectively
+retrieved and changed by its index. Indexing of both rows and columns
+starts at <code class="inline">1</code>.</p>
+  </section>
+</section>
+<section class="detail" id="t:iteration_opts/0">
+
+  <div class="detail-header">
+    <a href="#t:iteration_opts/0" class="detail-link" data-no-tooltip aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">iteration_opts()</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L94" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-type</span> iteration_opts() ::
+          #{row_order => left | right, column_order => top | bottom, loop_order => rows | columns}.</pre>
+
+      </div>
+
+<p>Options that affect the order of iteration through the matrix.</p><p>Possible values are:</p><ul><li><code class="inline">row_order</code> (default: <code class="inline">left</code>):<ul><li><code class="inline">left</code>: each row should be iterated from left (the beginning) to
+  right (the end).</li><li><code class="inline">right</code>: each row should be iterated from right to left.</li></ul></li><li><code class="inline">column_order</code> (default: <code class="inline">top</code>):<ul><li><code class="inline">top</code>: columns should be iterated from the top (the first one) to the
+  bottom (the last one).</li><li><code class="inline">bottom</code>: columns should be iterated from the bottom to the top.</li></ul></li><li><code class="inline">loop_order</code> (default: <code class="inline">rows</code>):<ul><li><code class="inline">rows</code>: iteration through rows: all the columns of single row should
+  be iterated before moving to the next row.</li><li><code class="inline">columns</code>: iteration through columns: all the rows of single column
+  should be iterated before moving to the next column.</li></ul></li></ul>
+  </section>
+</section>
+<section class="detail" id="t:iterator/1">
+
+  <div class="detail-header">
+    <a href="#t:iterator/1" class="detail-link" data-no-tooltip aria-label="Link to this opaque">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">iterator(Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L73" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-opaque</span> iterator(_Type)</pre>
+
+      </div>
+
+<p>An iterator to iterate through (possibly part of) matrix.</p>
+  </section>
+</section>
 <section class="detail" id="t:matrix/1">
 
   <div class="detail-header">
     <a href="#t:matrix/1" class="detail-link" data-no-tooltip aria-label="Link to this opaque">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">matrix/1</h1>
+    <h1 class="signature" translate="no">matrix(Type)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L8" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L49" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -287,63 +614,12 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-opaque</span> matrix(Type)</pre>
+          <pre translate="no"><span class="attribute">-opaque</span> matrix(_Type)</pre>
 
       </div>
 
-
-  </section>
-</section>
-<section class="detail" id="t:matrix_direction/0">
-
-  <div class="detail-header">
-    <a href="#t:matrix_direction/0" class="detail-link" data-no-tooltip aria-label="Link to this type">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <h1 class="signature" translate="no">matrix_direction/0</h1>
-
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L10" class="icon-action" rel="help" aria-label="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">-type</span> matrix_direction() :: up | right | down | left.</pre>
-
-      </div>
-
-
-  </section>
-</section>
-<section class="detail" id="t:matrix_index/0">
-
-  <div class="detail-header">
-    <a href="#t:matrix_index/0" class="detail-link" data-no-tooltip aria-label="Link to this type">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <h1 class="signature" translate="no">matrix_index/0</h1>
-
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L9" class="icon-action" rel="help" aria-label="View Source">
-       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-     </a>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <div class="specs">
-
-          <pre translate="no"><span class="attribute">-type</span> matrix_index() :: {Row :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), Column :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>()}.</pre>
-
-      </div>
-
-
+<p>A matrix is a table of data of type <code class="inline">Type</code>.</p><p>Matrix is composed of cells organized in rows and columns. Each row has the
+same number of columns and each column has the same number of rows.</p>
   </section>
 </section>
 
@@ -358,6 +634,37 @@ Pages
       <span class="text">Functions</span>
     </h1>
     <div class="functions-list">
+<section class="detail" id="dimensions/1">
+
+  <div class="detail-header">
+    <a href="#dimensions/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">dimensions(Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L220" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> dimensions(Matrix) -> Dimensions
+                    when
+                        Matrix :: <a href="#t:matrix/1">matrix</a>(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>()),
+                        Dimensions :: {Rows, Columns},
+                        Rows :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(),
+                        Columns :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
+
+      </div>
+
+<p>Returns matrix dimensions: row count <code class="inline">Rows</code> and column count <code class="inline">Columns</code>.</p>
+  </section>
+</section>
 <section class="detail" id="direction_all/0">
 
   <div class="detail-header">
@@ -366,22 +673,26 @@ Pages
     </a>
     <h1 class="signature" translate="no">direction_all()</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L175" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L297" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
 
   </div>
 
+    <div class="deprecated">
+      This function is deprecated. ja_erl_utils_matrix:direction_all/0 is deprecated; Use ?DIRECTIONS_ALL macro of ja_erl_utils_matrix.hrl instead.
+    </div>
+
   <section class="docstring">
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> direction_all() -> [<a href="#t:matrix_direction/0">matrix_direction</a>()].</pre>
+          <pre translate="no"><span class="attribute">-spec</span> direction_all() -> [<a href="#t:direction/0">direction</a>()].</pre>
 
       </div>
 
-
+<p>Returns all possible directions.</p>
   </section>
 </section>
 <section class="detail" id="direction_clockwise/1">
@@ -390,9 +701,9 @@ Pages
     <a href="#direction_clockwise/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">direction_clockwise(_)</h1>
+    <h1 class="signature" translate="no">direction_clockwise(Direction)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L194" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L318" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -403,11 +714,11 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> direction_clockwise(<a href="#t:matrix_direction/0">matrix_direction</a>()) -> <a href="#t:matrix_direction/0">matrix_direction</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> direction_clockwise(Direction) -> <a href="#t:direction/0">direction</a>() when Direction :: <a href="#t:direction/0">direction</a>().</pre>
 
       </div>
 
-
+<p>Returns direction after a clockwise turn from <code class="inline">Direction</code>.</p>
   </section>
 </section>
 <section class="detail" id="direction_counterclockwise/1">
@@ -416,9 +727,9 @@ Pages
     <a href="#direction_counterclockwise/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">direction_counterclockwise(_)</h1>
+    <h1 class="signature" translate="no">direction_counterclockwise(Direction)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L205" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L330" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -429,11 +740,11 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> direction_counterclockwise(<a href="#t:matrix_direction/0">matrix_direction</a>()) -> <a href="#t:matrix_direction/0">matrix_direction</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> direction_counterclockwise(Direction) -> <a href="#t:direction/0">direction</a>() when Direction :: <a href="#t:direction/0">direction</a>().</pre>
 
       </div>
 
-
+<p>Returns direction after a counterclockwise turn from <code class="inline">Direction</code>.</p>
   </section>
 </section>
 <section class="detail" id="direction_reverse/1">
@@ -442,9 +753,9 @@ Pages
     <a href="#direction_reverse/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">direction_reverse(_)</h1>
+    <h1 class="signature" translate="no">direction_reverse(Direction)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L183" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L306" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -455,11 +766,245 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> direction_reverse(<a href="#t:matrix_direction/0">matrix_direction</a>()) -> <a href="#t:matrix_direction/0">matrix_direction</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> direction_reverse(Direction) -> <a href="#t:direction/0">direction</a>() when Direction :: <a href="#t:direction/0">direction</a>().</pre>
 
       </div>
 
+<p>Returns opposite direction of <code class="inline">Direction</code>.</p>
+  </section>
+</section>
+<section class="detail" id="filter_count/2">
 
+  <div class="detail-header">
+    <a href="#filter_count/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">filter_count(Pred, Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L719" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> filter_count(Pred, Matrix) -> Count
+                      when
+                          Pred :: fun((Index, Value) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:boolean/0">boolean</a>()),
+                          Matrix :: <a href="#t:matrix/1">matrix</a>(Type),
+                          Index :: <a href="#t:index/0">index</a>(),
+                          Value :: Type,
+                          Count :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:number/0">number</a>(),
+                          Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
+
+      </div>
+
+<p>Filters cells of matrix <code class="inline">Matrix</code> using function (predicate) <code class="inline">Pred</code> and
+counts the remaining ones.</p><p>If <code class="inline">Matrix</code> represents matrix</p><pre><code class="makeup erlang" translate="no"><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span></code></pre><p>then</p><pre><code class="makeup erlang" translate="no"><span class="gp unselectable">&gt; </span><span class="nc">ja_erl_utils_matrix</span><span class="p">:</span><span class="nf">filter_count</span><span class="p" data-group-id="8005943278-1">(</span><span class="w">
+    </span><span class="nf">fun</span><span class="p" data-group-id="8005943278-2">(</span><span class="p" data-group-id="8005943278-3">{</span><span class="n">Row</span><span class="p">,</span><span class="w"> </span><span class="n">Column</span><span class="p" data-group-id="8005943278-3">}</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="p" data-group-id="8005943278-2">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Row</span><span class="w"> </span><span class="o">=:=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="ow">orelse</span><span class="w"> </span><span class="n">Column</span><span class="w"> </span><span class="o">=:=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="ow">orelse</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="ow">rem</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">=:=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">end</span><span class="p">,</span><span class="w">
+    </span><span class="n">Matrix</span><span class="w">
+  </span><span class="p" data-group-id="8005943278-1">)</span><span class="p">.</span><span class="w">
+</span><span class="mi">5</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="filter_count_foldf/3">
+
+  <div class="detail-header">
+    <a href="#filter_count_foldf/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">filter_count_foldf(Pred, Acc0, Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L757" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> filter_count_foldf(Pred, Acc0, Matrix) -> {Count, Acc1}
+                            when
+                                Pred :: fun((Index, Value, AccIn) -> {<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:boolean/0">boolean</a>(), AccOut}),
+                                Acc0 :: AccType,
+                                Acc1 :: AccType,
+                                AccIn :: AccType,
+                                AccOut :: AccType,
+                                Matrix :: <a href="#t:matrix/1">matrix</a>(Type),
+                                Index :: <a href="#t:index/0">index</a>(),
+                                Value :: Type,
+                                Count :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:number/0">number</a>(),
+                                Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>(),
+                                AccType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
+
+      </div>
+
+<p>Combines <a href="#filter_count/2"><code class="inline">filter_count/2</code></a> and <a href="#foldf/3"><code class="inline">foldf/3</code></a>.</p><p>If <code class="inline">Matrix</code> represents matrix</p><pre><code class="makeup erlang" translate="no"><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span></code></pre><p>then</p><pre><code class="makeup erlang" translate="no"><span class="gp unselectable">&gt; </span><span class="nc">ja_erl_utils_matrix</span><span class="p">:</span><span class="nf">filter_count_foldf</span><span class="p" data-group-id="8435025957-1">(</span><span class="w">
+    </span><span class="nf">fun</span><span class="p" data-group-id="8435025957-2">(</span><span class="p" data-group-id="8435025957-3">{</span><span class="n">Row</span><span class="p">,</span><span class="w"> </span><span class="n">Column</span><span class="p" data-group-id="8435025957-3">}</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="p">,</span><span class="w"> </span><span class="n">Acc</span><span class="p" data-group-id="8435025957-2">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p" data-group-id="8435025957-4">{</span><span class="n">Value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">Acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Row</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Column</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Value</span><span class="p" data-group-id="8435025957-4">}</span><span class="w"> </span><span class="k">end</span><span class="p">,</span><span class="w">
+    </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="n">Matrix</span><span class="w">
+  </span><span class="p" data-group-id="8435025957-1">)</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="8435025957-5">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p" data-group-id="8435025957-5">}</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="fold/4">
+
+  <div class="detail-header">
+    <a href="#fold/4" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">fold(Fun, Acc0, Matrix, Opts)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L532" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> fold(Fun, Acc0, Matrix, Opts) -> Acc1
+              when
+                  Fun :: fun((Index, Value, AccIn) -> AccOut),
+                  Acc0 :: AccType,
+                  Acc1 :: AccType,
+                  AccIn :: AccType,
+                  AccOut :: AccType,
+                  Matrix :: <a href="#t:matrix/1">matrix</a>(Type),
+                  Value :: Type,
+                  Index :: <a href="#t:index/0">index</a>(),
+                  Opts :: <a href="#t:iteration_opts/0">iteration_opts</a>() | #{loop_end_fun => fun((RowOrColumn, AccIn) -> AccOut)},
+                  RowOrColumn :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(),
+                  AccType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>(),
+                  Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
+
+      </div>
+
+<p>Folds through cells of matrix <code class="inline">Matrix</code> using function <code class="inline">Fun</code> and initial
+accumulator <code class="inline">Acc0</code>. Order of fold is defined in <code class="inline">Opts</code>.</p><p>In addition to options defined in <a href="#t:iteration_opts/0"><code class="inline">iteration_opts/0</code></a>, the following
+option in <code class="inline">Opts</code> is possible:</p><ul><li><code class="inline">loop_end_fun</code>: how accumulator must be altered after traversing full row
+  (if <code class="inline">loop_order</code> is <code class="inline">rows</code>) or full column (if <code class="inline">loop_order</code> is
+  <code class="inline">columns</code>). The function is passed the index of the row (if
+  <code class="inline">loop_order</code> is <code class="inline">rows</code>) or column (if <code class="inline">loop_order</code> is <code class="inline">columns</code>), which
+  has just been traversed. By default the same unaltered accumulator is
+  returned.</li></ul>
+  </section>
+</section>
+<section class="detail" id="foldb/3">
+
+  <div class="detail-header">
+    <a href="#foldb/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">foldb(Fun, Acc0, Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L606" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> foldb(Fun, Acc0, Matrix) -> Acc1
+               when
+                   Fun :: fun((Index, Value, AccIn) -> AccOut),
+                   Acc0 :: AccType,
+                   Acc1 :: AccType,
+                   AccIn :: AccType,
+                   AccOut :: AccType,
+                   Matrix :: <a href="#t:matrix/1">matrix</a>(Type),
+                   Index :: <a href="#t:index/0">index</a>(),
+                   Value :: Type,
+                   AccType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>(),
+                   Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
+
+      </div>
+
+<p>Folds back through cells of matrix <code class="inline">Matrix</code> using function <code class="inline">Fun</code> and
+initial accumulator <code class="inline">Acc0</code>.</p><p>The fold is started from the last row and last column. Each column of the
+row is handled consecutively before going to previous row.</p>
+  </section>
+</section>
+<section class="detail" id="foldf/3">
+
+  <div class="detail-header">
+    <a href="#foldf/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">foldf(Fun, Acc0, Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L582" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> foldf(Fun, Acc0, Matrix) -> Acc1
+               when
+                   Fun :: fun((Index, Value, AccIn) -> AccOut),
+                   Acc0 :: AccType,
+                   Acc1 :: AccType,
+                   AccIn :: AccType,
+                   AccOut :: AccType,
+                   Matrix :: <a href="#t:matrix/1">matrix</a>(Type),
+                   Index :: <a href="#t:index/0">index</a>(),
+                   Value :: Type,
+                   AccType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>(),
+                   Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
+
+      </div>
+
+<p>Folds forward through cells of matrix <code class="inline">Matrix</code> using function <code class="inline">Fun</code> and
+initial accumulator <code class="inline">Acc0</code>.</p><p>The fold is started from first row and first column. Each column of the row
+is handled consecutively before going to next row.</p>
+  </section>
+</section>
+<section class="detail" id="get/2">
+
+  <div class="detail-header">
+    <a href="#get/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">get(Index, Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L153" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> get(Index, Matrix) -> Value
+             when Index :: <a href="#t:index/0">index</a>(), Matrix :: <a href="#t:matrix/1">matrix</a>(Type), Value :: Type, Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
+
+      </div>
+
+<p>Returns value of the cell at index <code class="inline">Index</code> of matrix <code class="inline">Matrix</code>.</p><p>Throws <code class="inline">badarg</code> error, if <code class="inline">Index</code> is not in <code class="inline">Matrix</code>.</p>
   </section>
 </section>
 <section class="detail" id="get_char_matrix/1">
@@ -470,7 +1015,7 @@ Pages
     </a>
     <h1 class="signature" translate="no">get_char_matrix(Lines)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L61" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L376" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -481,22 +1026,25 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> get_char_matrix([Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()]) -> {Matrix :: <a href="#t:matrix/1">matrix</a>(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:char/0">char</a>()), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()}.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> get_char_matrix(Lines) -> Matrix when Lines :: [Line :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:string/0">string</a>()], Matrix :: <a href="#t:matrix/1">matrix</a>(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:char/0">char</a>()).</pre>
 
       </div>
 
-
+<p>Converts list of lines <code class="inline">Lines</code> to a matrix, with each character as a
+separate cell.</p><p>For each character, its line position in <code class="inline">Lines</code> is the row part of cell's
+index. Character's position in its line is the column part of cell's index.
+Each line in <code class="inline">Lines</code> must contain the same number of elements.</p>
   </section>
 </section>
-<section class="detail" id="get_new_matrix/2">
+<section class="detail" id="index_of/2">
 
   <div class="detail-header">
-    <a href="#get_new_matrix/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#index_of/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">get_new_matrix(Elem, Dimensions)</h1>
+    <h1 class="signature" translate="no">index_of(Value, Matrix)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L40" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L254" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -507,22 +1055,25 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> get_new_matrix(Elem :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>(), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) -> Matrix :: <a href="#t:matrix/1">matrix</a>(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>()).</pre>
+          <pre translate="no"><span class="attribute">-spec</span> index_of(Value, Matrix) -> <a href="#t:index/0">index</a>() | undefined
+                  when Value :: Type, Matrix :: <a href="#t:matrix/1">matrix</a>(Type), Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
 
       </div>
 
-
+<p>Returns the index of cell with value <code class="inline">Value</code> in matrix <code class="inline">Matrix</code>.</p><p>If <code class="inline">Value</code> is not found, <code class="inline">undefined</code> is returned. If there are several
+occurrences of <code class="inline">Value</code> in <code class="inline">Matrix</code>, one of the indexes is returned, but it
+is not specified, which one.</p>
   </section>
 </section>
-<section class="detail" id="matrix_foldl/4">
+<section class="detail" id="is_valid_index/2">
 
   <div class="detail-header">
-    <a href="#matrix_foldl/4" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#is_valid_index/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">matrix_foldl(FoldFun, AccIn, Matrix, Dimensions)</h1>
+    <h1 class="signature" translate="no">is_valid_index(Index, Matrix)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L161" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L204" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -533,29 +1084,25 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> matrix_foldl(FoldFun ::
-                       fun((Index :: <a href="#t:matrix_index/0">matrix_index</a>(), Elem :: ElemType, Accumulator :: AccType) ->
-                               NewAccumulator :: AccType),
-                   AccIn :: AccType,
-                   Matrix :: <a href="#t:matrix/1">matrix</a>(ElemType),
-                   Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) ->
-                      AccOut :: AccType
-                      when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>(), AccType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> is_valid_index(Index, Matrix) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:boolean/0">boolean</a>() when Index :: <a href="#t:index/0">index</a>(), Matrix :: <a href="#t:matrix/1">matrix</a>(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>()).</pre>
 
       </div>
 
-
+<p>Returns <code class="inline">true</code> if index <code class="inline">Index</code> is in matrix <code class="inline">Matrix</code>. Otherwise returns
+<code class="inline">false</code>.</p><p><code class="inline">Index</code> is in <code class="inline">Matrix</code>, if both column and row part of <code class="inline">Index</code> are
+positive, row part is not larger that row count of <code class="inline">Matrix</code> and column part
+is not larger than column count of <code class="inline">Matrix</code>.</p>
   </section>
 </section>
-<section class="detail" id="matrix_index_of/2">
+<section class="detail" id="iterator/1">
 
   <div class="detail-header">
-    <a href="#matrix_index_of/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#iterator/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">matrix_index_of(Elem, Matrix)</h1>
+    <h1 class="signature" translate="no">iterator(Matrix)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L86" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L408" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -566,23 +1113,23 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> matrix_index_of(Elem :: ElemType, Matrix :: <a href="#t:matrix/1">matrix</a>(ElemType)) -> <a href="#t:matrix_index/0">matrix_index</a>() | undefined
-                         when ElemType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> iterator(Matrix) -> Iterator
+                  when Matrix :: <a href="#t:matrix/1">matrix</a>(Type), Iterator :: <a href="#t:iterator/1">iterator</a>(Type), Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
 
       </div>
 
-
+<p>Returns matrix <code class="inline">Matrix</code> iterator with default iteration options.</p><p>Equivalent to calling <code class="inline">iterator(Matrix, #{})</code>.</p>
   </section>
 </section>
-<section class="detail" id="matrix_is_valid_index/2">
+<section class="detail" id="iterator/2">
 
   <div class="detail-header">
-    <a href="#matrix_is_valid_index/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#iterator/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">matrix_is_valid_index(CurrentIndex, Dimensions)</h1>
+    <h1 class="signature" translate="no">iterator(Matrix, Opts)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L107" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L424" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -593,22 +1140,27 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> matrix_is_valid_index(CurrentIndex :: <a href="#t:matrix_index/0">matrix_index</a>(), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:boolean/0">boolean</a>().</pre>
+          <pre translate="no"><span class="attribute">-spec</span> iterator(Matrix, Opts) -> Iterator
+                  when
+                      Matrix :: <a href="#t:matrix/1">matrix</a>(Type),
+                      Opts :: <a href="#t:iteration_opts/0">iteration_opts</a>(),
+                      Iterator :: <a href="#t:iterator/1">iterator</a>(Type),
+                      Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
 
       </div>
 
-
+<p>Returns matrix <code class="inline">Matrix</code> iterator with iteration options <code class="inline">Opts</code>.</p><p>Iterator can be used to iterate through matrix using <a href="#next/1"><code class="inline">next/1</code></a> function.</p>
   </section>
 </section>
-<section class="detail" id="matrix_next_index/3">
+<section class="detail" id="map/2">
 
   <div class="detail-header">
-    <a href="#matrix_next_index/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#map/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">matrix_next_index(CurrentIndex, Direction, Dimensions)</h1>
+    <h1 class="signature" translate="no">map(Fun, Matrix1)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L126" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L625" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -619,25 +1171,31 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> matrix_next_index(CurrentIndex :: <a href="#t:matrix_index/0">matrix_index</a>(),
-                        Direction :: <a href="#t:matrix_direction/0">matrix_direction</a>(),
-                        Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) ->
-                           NextIndex :: <a href="#t:matrix_index/0">matrix_index</a>() | undefined.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> map(Fun, Matrix1) -> Matrix2
+             when
+                 Fun :: fun((Index, Value1) -> Value2),
+                 Matrix1 :: <a href="#t:matrix/1">matrix</a>(Type),
+                 Matrix2 :: <a href="#t:matrix/1">matrix</a>(Type),
+                 Index :: <a href="#t:index/0">index</a>(),
+                 Value1 :: Type,
+                 Value2 :: Type,
+                 Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
 
       </div>
 
-
+<p>Maps every cell of matrix <code class="inline">Matrix</code> using function <code class="inline">Fun</code> and returns new
+matrix with mapped values.</p>
   </section>
 </section>
-<section class="detail" id="print_char_matrix/2">
+<section class="detail" id="map_sum/2">
 
   <div class="detail-header">
-    <a href="#print_char_matrix/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+    <a href="#map_sum/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
-    <h1 class="signature" translate="no">print_char_matrix(Matrix, Dimensions)</h1>
+    <h1 class="signature" translate="no">map_sum(Fun, Matrix)</h1>
 
-      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.16.ref016edba/src/ja_erl_utils_matrix.erl#L22" class="icon-action" rel="help" aria-label="View Source">
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L653" class="icon-action" rel="help" aria-label="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
      </a>
 
@@ -648,11 +1206,279 @@ Pages
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">-spec</span> print_char_matrix(Matrix :: <a href="#t:matrix/1">matrix</a>(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>()), Dimensions :: <a href="#t:matrix_index/0">matrix_index</a>()) -> ok.</pre>
+          <pre translate="no"><span class="attribute">-spec</span> map_sum(Fun, Matrix) -> Sum
+                 when
+                     Fun :: fun((Index, Value) -> <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:number/0">number</a>()),
+                     Matrix :: <a href="#t:matrix/1">matrix</a>(Type),
+                     Index :: <a href="#t:index/0">index</a>(),
+                     Value :: Type,
+                     Sum :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:number/0">number</a>(),
+                     Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
 
       </div>
 
+<p>Maps every cell of matrix <code class="inline">Matrix</code> to a number using function <code class="inline">Fun</code> and
+adds those numbers.</p><p>Calling it is equivalent to calling
+<code class="inline">lists:sum(ja_erl_utils_matrix:values(ja_erl_utils_matrix:map(Fun, Matrix)))</code>,
+except that <code class="inline">Matrix</code> is traversed only once.</p>
+  </section>
+</section>
+<section class="detail" id="map_sum_foldf/3">
 
+  <div class="detail-header">
+    <a href="#map_sum_foldf/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">map_sum_foldf(Fun, Acc0, Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L688" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> map_sum_foldf(Fun, Acc0, Matrix) -> {Sum, Acc1}
+                       when
+                           Fun :: fun((Index, Value, AccIn) -> {<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:number/0">number</a>(), AccOut}),
+                           Acc0 :: AccType,
+                           Acc1 :: AccType,
+                           AccIn :: AccType,
+                           AccOut :: AccType,
+                           Matrix :: <a href="#t:matrix/1">matrix</a>(Type),
+                           Sum :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:number/0">number</a>(),
+                           Index :: <a href="#t:index/0">index</a>(),
+                           Value :: Type,
+                           Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>(),
+                           AccType :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:term/0">term</a>().</pre>
+
+      </div>
+
+<p>Combines <a href="#map_sum/2"><code class="inline">map_sum/2</code></a> and <a href="#foldf/3"><code class="inline">foldf/3</code></a>.</p><p>If <code class="inline">Matrix</code> represents matrix</p><pre><code class="makeup erlang" translate="no"><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span></code></pre><p>then</p><pre><code class="makeup erlang" translate="no"><span class="gp unselectable">&gt; </span><span class="nc">ja_erl_utils_matrix</span><span class="p">:</span><span class="nf">map_sum_foldf</span><span class="p" data-group-id="1667699712-1">(</span><span class="w">
+    </span><span class="nf">fun</span><span class="p" data-group-id="1667699712-2">(</span><span class="p" data-group-id="1667699712-3">{</span><span class="n">Row</span><span class="p">,</span><span class="w"> </span><span class="n">Column</span><span class="p" data-group-id="1667699712-3">}</span><span class="p">,</span><span class="w"> </span><span class="n">Value</span><span class="p">,</span><span class="w"> </span><span class="n">AccIn</span><span class="p" data-group-id="1667699712-2">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p" data-group-id="1667699712-4">{</span><span class="n">Row</span><span class="o">*</span><span class="n">Column</span><span class="o">*</span><span class="n">Value</span><span class="p">,</span><span class="w"> </span><span class="n">AccIn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Row</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Column</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Value</span><span class="p" data-group-id="1667699712-4">}</span><span class="w"> </span><span class="k">end</span><span class="p">,</span><span class="w">
+    </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="n">Matrix</span><span class="w">
+  </span><span class="p" data-group-id="1667699712-1">)</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="1667699712-5">{</span><span class="mi">27</span><span class="p">,</span><span class="mi">22</span><span class="p" data-group-id="1667699712-5">}</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="new/2">
+
+  <div class="detail-header">
+    <a href="#new/2" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">new(Rows, Columns)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L114" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> new(Rows, Columns) -> <a href="#t:matrix/1">matrix</a>(undefined) when Rows :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), Columns :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>().</pre>
+
+      </div>
+
+<p>Returns a new matrix with <code class="inline">Rows</code> rows and <code class="inline">Columns</code> columns and with all
+cells filled by <code class="inline">undefined</code>.</p><p>Calling it is equivalent to calling
+<code class="inline">ja_erl_utils_matrix:new(Rows, Columns, undefined).</code></p>
+  </section>
+</section>
+<section class="detail" id="new/3">
+
+  <div class="detail-header">
+    <a href="#new/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">new(Rows, Columns, Default)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L129" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> new(Rows, Columns, Default) -> <a href="#t:matrix/1">matrix</a>(Type)
+             when Rows :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), Columns :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:integer/0">integer</a>(), Default :: Type, Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
+
+      </div>
+
+<p>Returns a new matrix with <code class="inline">Rows</code> rows and <code class="inline">Columns</code> columns and with all
+the cells filled by <code class="inline">Default</code>.</p>
+  </section>
+</section>
+<section class="detail" id="next/1">
+
+  <div class="detail-header">
+    <a href="#next/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">next(Iterator)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L474" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> next(Iterator) -> {Index, Value, NextIterator} | none
+              when
+                  Iterator :: <a href="#t:iterator/1">iterator</a>(Type),
+                  NextIterator :: <a href="#t:iterator/1">iterator</a>(Type),
+                  Index :: <a href="#t:index/0">index</a>(),
+                  Value :: Type,
+                  Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
+
+      </div>
+
+<p>Returns next index and value according to iterator <code class="inline">Iterator</code> and a new
+iterator for remaining data.</p><p>If there are no data according to iterator, returns <code class="inline">none</code>.</p><pre><code class="makeup erlang" translate="no"><span class="gp unselectable">&gt; </span><span class="n">Matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ja_erl_utils_matrix</span><span class="p">:</span><span class="nf">get_char_matrix</span><span class="p" data-group-id="7731202439-1">(</span><span class="p" data-group-id="7731202439-2">[</span><span class="s">&quot;ab&quot;</span><span class="p">,</span><span class="s">&quot;cd&quot;</span><span class="p" data-group-id="7731202439-2">]</span><span class="p" data-group-id="7731202439-1">)</span><span class="p">,</span><span class="w">
+  </span><span class="n">It</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ja_erl_utils_matrix</span><span class="p">:</span><span class="nf">iterator</span><span class="p" data-group-id="7731202439-3">(</span><span class="n">Matrix</span><span class="p" data-group-id="7731202439-3">)</span><span class="p">,</span><span class="w"> </span><span class="ss">ok</span><span class="p">.</span><span class="w">
+</span><span class="ss">ok</span><span class="gp unselectable">
+&gt; </span><span class="p" data-group-id="7731202439-4">{</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">V1</span><span class="p">,</span><span class="w"> </span><span class="n">It1</span><span class="p" data-group-id="7731202439-4">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ja_erl_utils_matrix</span><span class="p">:</span><span class="nf">next</span><span class="p" data-group-id="7731202439-5">(</span><span class="n">It</span><span class="p" data-group-id="7731202439-5">)</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7731202439-6">{</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">V1</span><span class="p" data-group-id="7731202439-6">}</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="7731202439-7">{</span><span class="p" data-group-id="7731202439-8">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p" data-group-id="7731202439-8">}</span><span class="p">,</span><span class="mi">97</span><span class="p" data-group-id="7731202439-7">}</span><span class="gp unselectable">
+&gt; </span><span class="p" data-group-id="7731202439-9">{</span><span class="n">I2</span><span class="p">,</span><span class="w"> </span><span class="n">V2</span><span class="p">,</span><span class="w"> </span><span class="n">It2</span><span class="p" data-group-id="7731202439-9">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ja_erl_utils_matrix</span><span class="p">:</span><span class="nf">next</span><span class="p" data-group-id="7731202439-10">(</span><span class="n">It1</span><span class="p" data-group-id="7731202439-10">)</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7731202439-11">{</span><span class="n">I2</span><span class="p">,</span><span class="w"> </span><span class="n">V2</span><span class="p" data-group-id="7731202439-11">}</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="7731202439-12">{</span><span class="p" data-group-id="7731202439-13">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p" data-group-id="7731202439-13">}</span><span class="p">,</span><span class="mi">98</span><span class="p" data-group-id="7731202439-12">}</span><span class="gp unselectable">
+&gt; </span><span class="p" data-group-id="7731202439-14">{</span><span class="n">I3</span><span class="p">,</span><span class="w"> </span><span class="n">V3</span><span class="p">,</span><span class="w"> </span><span class="n">It3</span><span class="p" data-group-id="7731202439-14">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ja_erl_utils_matrix</span><span class="p">:</span><span class="nf">next</span><span class="p" data-group-id="7731202439-15">(</span><span class="n">It2</span><span class="p" data-group-id="7731202439-15">)</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7731202439-16">{</span><span class="n">I3</span><span class="p">,</span><span class="w"> </span><span class="n">V3</span><span class="p" data-group-id="7731202439-16">}</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="7731202439-17">{</span><span class="p" data-group-id="7731202439-18">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p" data-group-id="7731202439-18">}</span><span class="p">,</span><span class="mi">99</span><span class="p" data-group-id="7731202439-17">}</span><span class="gp unselectable">
+&gt; </span><span class="p" data-group-id="7731202439-19">{</span><span class="n">I4</span><span class="p">,</span><span class="w"> </span><span class="n">V4</span><span class="p">,</span><span class="w"> </span><span class="n">It4</span><span class="p" data-group-id="7731202439-19">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ja_erl_utils_matrix</span><span class="p">:</span><span class="nf">next</span><span class="p" data-group-id="7731202439-20">(</span><span class="n">It3</span><span class="p" data-group-id="7731202439-20">)</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7731202439-21">{</span><span class="n">I4</span><span class="p">,</span><span class="w"> </span><span class="n">V4</span><span class="p" data-group-id="7731202439-21">}</span><span class="p">.</span><span class="w">
+</span><span class="p" data-group-id="7731202439-22">{</span><span class="p" data-group-id="7731202439-23">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p" data-group-id="7731202439-23">}</span><span class="p">,</span><span class="mi">100</span><span class="p" data-group-id="7731202439-22">}</span><span class="gp unselectable">
+&gt; </span><span class="nc">ja_erl_utils_matrix</span><span class="p">:</span><span class="nf">next</span><span class="p" data-group-id="7731202439-24">(</span><span class="n">It4</span><span class="p" data-group-id="7731202439-24">)</span><span class="p">.</span><span class="w">
+</span><span class="ss">none</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="next_index/3">
+
+  <div class="detail-header">
+    <a href="#next_index/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">next_index(Index, Direction, Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L279" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> next_index(Index, Direction, Matrix) -> <a href="#t:index/0">index</a>() | undefined
+                    when Index :: <a href="#t:index/0">index</a>(), Direction :: <a href="#t:direction/0">direction</a>(), Matrix :: <a href="#t:matrix/1">matrix</a>(any).</pre>
+
+      </div>
+
+<p>Returns index of the next cell of matrix <code class="inline">Matrix</code>, starting with index
+<code class="inline">Index</code> in direction <code class="inline">Direction</code>.</p><p>If there is no cell in that direction (it is out of matrix bounds),
+<code class="inline">undefined</code> is returned.</p>
+  </section>
+</section>
+<section class="detail" id="print_char_matrix/1">
+
+  <div class="detail-header">
+    <a href="#print_char_matrix/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">print_char_matrix(Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L344" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> print_char_matrix(Matrix) -> ok when Matrix :: <a href="#t:matrix/1">matrix</a>(<a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:char/0">char</a>()).</pre>
+
+      </div>
+
+<p>Outputs matrix <code class="inline">Matrix</code> of characters to terminal.</p>
+  </section>
+</section>
+<section class="detail" id="set/3">
+
+  <div class="detail-header">
+    <a href="#set/3" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">set(Index, Matrix1, Value)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L180" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> set(Index, Matrix1, Value) -> Matrix2
+             when
+                 Index :: <a href="#t:index/0">index</a>(),
+                 Matrix1 :: <a href="#t:matrix/1">matrix</a>(Type),
+                 Matrix2 :: <a href="#t:matrix/1">matrix</a>(Type),
+                 Value :: Type,
+                 Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
+
+      </div>
+
+<p>Sets value of the cell at index <code class="inline">Index</code> of matrix <code class="inline">Matrix</code> to <code class="inline">Value</code>.</p><p>Throws <code class="inline">badarg</code> error, if <code class="inline">Index</code> is not in <code class="inline">Matrix</code>.</p>
+  </section>
+</section>
+<section class="detail" id="values/1">
+
+  <div class="detail-header">
+    <a href="#values/1" class="detail-link" data-no-tooltip aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <h1 class="signature" translate="no">values(Matrix)</h1>
+
+      <a href="https://github.com/Juliusan/ja_erl_utils/blob/0.1.0+build.18.ref4045b97/src/ja_erl_utils_matrix.erl#L236" class="icon-action" rel="help" aria-label="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">-spec</span> values(Matrix) -> Values when Matrix :: <a href="#t:matrix/1">matrix</a>(Type), Values :: [Type], Type :: <a href="https://www.erlang.org/doc/apps/erts/erlang.html#t:any/0">any</a>().</pre>
+
+      </div>
+
+<p>Returns list of all the cell values of matrix <code class="inline">Matrix</code>.</p>
   </section>
 </section>
 
