@@ -15,5 +15,7 @@ run:
 docs:
 	$(REBAR) as docs ex_doc
 
+clean:
+	$(REBAR) clean
 
-.PHONY: all compile test run docs
+.PHONY: all compile test run docs clean

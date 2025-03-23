@@ -1,6 +1,6 @@
--ifndef(ja_erl_utils_matrix).
--define(ja_erl_utils_matrix, true).
+-ifndef(ja_erl_utils_matrix_hrl).
+-define(ja_erl_utils_matrix_hrl, true).
 
--define(DIRECTIONS_ALL, [right, down, left, up]).
+-define(MATRIX_DIRECTIONS_ALL, [right, down, left, up]).
 
 -endif.

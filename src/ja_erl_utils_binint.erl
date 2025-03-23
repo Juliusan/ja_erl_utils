@@ -19,10 +19,34 @@
 -export([bit_and/2, bit_or/2, bit_xor/2, bit_invert/1]).
 -export([and_/2, or_/2, xor_/2, invert/1]).     % NOTE `and_` instead of `and`, because `and` is a reserved word and cannot be used for function name.
 -export([drop_insignificant_zeros/1]).
+-export_type([bit/0, binint/0]).
 
 -define(IS_BIT(B), (B =:= 0 orelse B =:= 1)).
 
--include("ja_erl_utils_binint.hrl").
+
+%------------------------------------------------------------------------------
+% Type definitions
+%------------------------------------------------------------------------------
+
+
+%%
+-doc "Represents one bit.".
+-type bit() :: 0 | 1.
+
+
+%%
+-doc """
+    Represents a binary integer number.
+
+    The list of bits starts with the least significant bit and ends with the
+    most significant one.
+    """.
+-type binint() :: [bit()].
+
+
+%------------------------------------------------------------------------------
+% Functions of the module
+%------------------------------------------------------------------------------
 
 
 %%

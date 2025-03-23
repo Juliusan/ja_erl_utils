@@ -28,12 +28,18 @@
 -export([map_sum/2, map_sum_foldf/3, filter_count/2, filter_count_foldf/3]).
 -export_type([matrix/1, index/0, direction/0, iterator/1, iteration_opts/0]).
 -deprecated([
-    {direction_all, 0, "Use ?DIRECTIONS_ALL macro of ja_erl_utils_matrix.hrl instead"}
+    {direction_all, 0, "Use ?MATRIX_DIRECTIONS_ALL macro of ja_erl_utils_matrix.hrl instead"}
 ]).
 
 -include("ja_erl_utils_matrix.hrl").
 
 
+%------------------------------------------------------------------------------
+% Type definitions
+%------------------------------------------------------------------------------
+
+
+%%
 -doc """
     A matrix is a table of data of type `Type`.
 
@@ -49,6 +55,7 @@
 -opaque matrix(_Type) :: #matrix{}.
 
 
+%%
 -doc """
     Index of a matrix cell, composing of cell's row `Row` and column `Column`.
 
@@ -59,10 +66,12 @@
 -type index() :: {Row :: integer(), Column :: integer()}.
 
 
+%%
 -doc "Direction to move to the next matrix cell.".
 -type direction() :: up | right | down | left.
 
 
+%%
 -doc "An iterator to iterate through (possibly part of) matrix.".
 -record(iterator, {
     index                :: index(),                    % Index, that will be returned next
@@ -73,6 +82,7 @@
 -opaque iterator(_Type) :: #iterator{} | none.
 
 
+%%
 -doc """
     Options that affect the order of iteration through the matrix.
 
@@ -96,6 +106,11 @@
     column_order => top | bottom,
     loop_order   => rows | columns
 }.
+
+
+%------------------------------------------------------------------------------
+% Functions of the module
+%------------------------------------------------------------------------------
 
 
 %%
@@ -294,7 +309,7 @@ next_index_no_check({Row, Col}, left ) -> {Row, Col-1}.
 -doc "Returns all possible directions.".
 -spec direction_all() -> [direction()].
 
-direction_all() -> ?DIRECTIONS_ALL.
+direction_all() -> ?MATRIX_DIRECTIONS_ALL.
 
 
 %%
