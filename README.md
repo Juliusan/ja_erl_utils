@@ -23,19 +23,24 @@ The `ja_erl_utils` library was created after Advent of Code 2024.
 The library uses `make` to do its regular tasks.
 
 To build `ja_erl_utils` use:
+
     $ make compile
 
 To run all the unit tests use:
+
     $ make test
 
 It is possible to run only some unit tests:
+
     $ make test EUNIT_ARGS="--module=ja_erl_utils_int_tests"
     $ make test EUNIT_ARGS="--generator=ja_erl_utils_int_tests:solve_two_equations_int_test_"
 
 For more details, see `rebar3` [documentation](https://rebar3.org/docs/commands/#eunit).
 
 To generate documentation use:
+    
     $ make docs
 
 To try out the functions in console use:
+    
     $ make run
