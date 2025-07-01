@@ -14,6 +14,9 @@ The functions are grouped into modules by their domains. These modules are avail
 * `m:ja_erl_utils_terminal` contains functions for working with output and input from the terminal.
 
 You can read documentation committed to the repository [here](https://rawcdn.githack.com/Juliusan/ja_erl_utils/master/doc/index.html).
+I tried to make the documentation as clear as possible and as thorough as possible.
+I also tried to cover as much as possible by unit tests.
+So if documentation leaves some questions unanswered, try looking at test cases.
 
 This library is heavily influenced by the needs, which arose while solving [Advent of Code](https://adventofcode.com/) tasks.
 If you want to check out my solutions or at least some of them, you can visit [my Advent of Code repository](https://github.com/Juliusan/adventofcode).
