@@ -17,8 +17,8 @@ dist/lato-latin-ext-300-normal-VPGGJKJL.woff2
 dist/lato-latin-ext-400-normal-N27NCBWW.woff2
 dist/lato-latin-ext-700-normal-Q2L5DVMW.woff2
 dist/remixicon-NKANDIL5.woff2
-dist/search_data-EA18E912.js
-dist/sidebar_items-AFC3135D.js
+dist/search_data-E63F4543.js
+dist/sidebar_items-3FD7EF8D.js
 index.html
 ja_erl_utils.html
 ja_erl_utils_binint.html
@@ -28,6 +28,7 @@ ja_erl_utils_list.html
 ja_erl_utils_map.html
 ja_erl_utils_matrix.html
 ja_erl_utils_string.html
+ja_erl_utils_term.html
 ja_erl_utils_terminal.html
 license.html
 readme.html

@@ -10,6 +10,7 @@ The functions are grouped into modules by their domains. These modules are avail
 * `m:ja_erl_utils_map` contains functions for working with Erlang maps.
 * `m:ja_erl_utils_matrix` contains functions for working with two dimensional arrays (matrices).
 * `m:ja_erl_utils_string` contains functions for working with strings as well as parsing them.
+* `m:ja_erl_utils_term` contains functions for working with Erlang term in general.
 * `m:ja_erl_utils_terminal` contains functions for working with output and input from the terminal.
 
 You can read documentation committed to the repository [here](https://rawcdn.githack.com/Juliusan/ja_erl_utils/master/doc/index.html).
@@ -38,9 +39,9 @@ It is possible to run only some unit tests:
 For more details, see `rebar3` [documentation](https://rebar3.org/docs/commands/#eunit).
 
 To generate documentation use:
-    
+
     $ make docs
 
 To try out the functions in console use:
-    
+
     $ make run
