@@ -259,8 +259,44 @@ format(Integer, _Indent, _Options) when is_integer(Integer) ->
 format(Float, _Indent, _Options) when is_float(Float) ->
     erlang:float_to_binary(Float, [short]);
 
-format(Binary, _Indent, _Options) when is_binary(Binary) ->
-    <<"<<\"", Binary/binary, "\">>">>;
+format(Pid, _Indent, _Options) when is_pid(Pid) ->
+    erlang:list_to_binary(erlang:pid_to_list(Pid));
+
+format(Ref, _Indent, _Options) when is_reference(Ref) ->
+    erlang:list_to_binary(erlang:ref_to_list(Ref));
+
+format(Port, _Indent, _Options) when is_port(Port) ->
+    erlang:list_to_binary(erlang:port_to_list(Port));
+
+format(Fun, _Indent, _Options) when is_function(Fun) ->
+    erlang:list_to_binary(erlang:fun_to_list(Fun));
+
+format(BitStr, _Indent, _Options) when is_bitstring(BitStr) ->  % this cover binaries as every binary is a bitstring
+    IsPrintable = try unicode:characters_to_list(BitStr) of
+        List when is_list(List) -> io_lib:printable_unicode_list(List);
+        {error,      _, _}      -> false;
+        {incomplete, _, _}      -> false
+    catch
+        _:_                     -> false
+    end,
+    case {erlang:bit_size(BitStr), IsPrintable} of
+        {N, true} when N>0 ->
+            <<"<<\"", BitStr/binary, "\">>">>;
+        {BitSize, _} ->
+            {Binary, RemainderBin} = case BitSize rem 8 of
+                0 ->
+                    {BitStr, <<>>};
+                RemBitSize ->
+                    BinarySize = BitSize div 8,
+                    <<Bin:BinarySize/binary, RemValue:RemBitSize/integer>> = BitStr,
+                    RemValueBin   = integer_to_binary(RemValue),
+                    RemBitSizeBin = integer_to_binary(RemBitSize),
+                    RemBin = <<", ", RemValueBin/binary, ":", RemBitSizeBin/binary>>,
+                    {Bin, RemBin}
+            end,
+            BinaryBin = erlang:iolist_to_binary(lists:join(", ", lists:map(fun erlang:integer_to_list/1, binary_to_list(Binary)))),
+            <<"<<", BinaryBin/binary, RemainderBin/binary, ">>">>
+    end;
 
 format(List, Indent, Options) when is_list(List) ->
     case {List, io_lib:printable_unicode_list(List)} of

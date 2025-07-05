@@ -10,7 +10,7 @@ test:
 	$(REBAR) eunit --verbose $(EUNIT_ARGS)
 
 run:
-	$(REBAR) as test shell --name "ja_erl_utils" --apps sync
+	ERL_FLAGS="+pc unicode" $(REBAR) as test shell --name "ja_erl_utils" --apps sync
 
 docs:
 	$(REBAR) as docs ex_doc
