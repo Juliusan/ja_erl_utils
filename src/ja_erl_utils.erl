@@ -14,6 +14,18 @@
 %%%
 
 -module(ja_erl_utils).
--moduledoc "Root module of the library. Nothing to see here.".
+-moduledoc "Root module of the library. Provides general functions.".
 
--export([]).
+-export([word_size/0]).
+
+
+-doc """
+    Returns size (in bytes) of a single word of the system.
+
+    This is a wrapper function, which returns the same as
+    `erlang:system_info(wordsize)`. It is needed because word size must be
+    mocked in some tests.
+    """.
+-spec word_size() -> 4 | 8.
+
+word_size() -> erlang:system_info(wordsize).

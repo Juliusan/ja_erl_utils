@@ -7,7 +7,7 @@ compile:
 	$(REBAR) compile
 
 test:
-	$(REBAR) eunit --verbose $(EUNIT_ARGS)
+	$(REBAR) eunit --verbose $(EUNIT_ARGS) --name "ja_erl_utils"
 
 run:
 	ERL_FLAGS="+pc unicode" $(REBAR) as test shell --name "ja_erl_utils" --apps sync

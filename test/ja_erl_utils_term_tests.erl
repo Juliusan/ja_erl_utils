@@ -3,6 +3,7 @@
 %%%
 -module(ja_erl_utils_term_tests).
 -include_lib("eunit/include/eunit.hrl").
+-include_lib("kernel/include/inet.hrl").
 
 
 format_test_() ->
@@ -333,3 +334,112 @@ format_test_() ->
             "  {a, b} => {\n    c,\n    d\n  },\n",
             "  {e, f} => {\n    g,\n    h\n  }\n}">>, Fun2(#{{a, b} => {c,d}, {e,f} => {g, h}}, #{expand_map_keys => false}))
     ].
+
+
+%%
+%% NOTE: This test is a bit lengthy. It creates another Erlang node to get a
+%%       pid, a ref and a port from it. I don't know how to fake them in
+%%       current (test) node.
+%%
+memory_usage_test_() ->
+    LargeMap = lists:foldl(                                 % 33*[1.6-1.8]
+        fun(Elem, AccMap) ->
+            AccMap#{Elem => erlang:integer_to_list(Elem)}   % 6*(1 + 1+3+3)+9*(1 + 1+2+2)+10*(1 + 1+1+1)+6*(1 + 1+2+2)
+        end, #{
+            atom   => 15,                                   % 1 + 1
+            {1, 2} => [<<"123">>, {-1.23, true}]            % 2+1+1 + 1+2+[4-7]+(2+Float+1)
+        },
+        lists:seq(-15, 15)
+    ),
+    Port = erlang:list_to_port("#Port<0.1>"),
+    {ok, HostName} = inet:gethostname(),
+    {ok, #hostent{h_name = FullHostName}} = inet:gethostbyname(HostName),
+    {ok, Pid, _Node} = peer:start_link(#{
+        connection => standard_io,
+        name       => peer:random_name(),
+        host       => FullHostName,
+        cookie     => erlang:get_cookie()
+    }),
+    RemotePid  = peer:call(Pid, erlang, spawn, [fun() -> ok end]),
+    RemoteRef  = peer:call(Pid, erlang, make_ref, []),
+    RemotePort = peer:call(Pid, erlang, list_to_port, ["#Port<0.1>"]),
+    ok = peer:stop(Pid),
+    {setup,
+        fun () -> ok = meck:new(ja_erl_utils, [passthrough]) end,
+        fun (_) -> ok = meck:unload([ja_erl_utils]) end,
+        [
+            {"Tests for 4 bytes architecture", fun() ->
+                ok = meck:expect(ja_erl_utils, word_size, [{[], 4}]),
+                BigInteger = 1000000000,
+                ?assertEqual(4,                     ja_erl_utils_term:memory_usage(5                    )),
+                ?assertEqual({at_least,  12},       ja_erl_utils_term:memory_usage(BigInteger           )),
+                ?assertEqual(4,                     ja_erl_utils_term:memory_usage(atom                 )),
+                ?assertEqual(16,                    ja_erl_utils_term:memory_usage(1.23                 )),
+                ?assertEqual({between, 12, 24},     ja_erl_utils_term:memory_usage(<<>>                 )),
+                ?assertEqual({between, 16, 28},     ja_erl_utils_term:memory_usage(<<1:1>>              )),
+                ?assertEqual({between, 16, 28},     ja_erl_utils_term:memory_usage(<<1, 2, 3>>          )),
+                ?assertEqual({between, 16, 28},     ja_erl_utils_term:memory_usage(<<"1234">>           )),
+                ?assertEqual({between, 20, 32},     ja_erl_utils_term:memory_usage(<<1, 2, 200:17>>     )),
+                ?assertEqual(4,                     ja_erl_utils_term:memory_usage([]                   )),
+                ?assertEqual(12,                    ja_erl_utils_term:memory_usage([1]                  )),
+                ?assertEqual({between, 44, 56},     ja_erl_utils_term:memory_usage([1.23, <<"12">>]     )),
+                ?assertEqual({at_least, 28},        ja_erl_utils_term:memory_usage([atom, BigInteger]   )),
+                ?assertEqual({at_least, 40},        ja_erl_utils_term:memory_usage([BigInteger, <<"1">>])),
+                ?assertEqual(36,                    ja_erl_utils_term:memory_usage("1234"               )),
+                ?assertEqual(8,                     ja_erl_utils_term:memory_usage({}                   )),
+                ?assertEqual(12,                    ja_erl_utils_term:memory_usage({1}                  )),
+                ?assertEqual({between, 40, 52},     ja_erl_utils_term:memory_usage({1.23, <<"12">>}     )),
+                ?assertEqual({at_least, 24},        ja_erl_utils_term:memory_usage({atom, BigInteger}   )),
+                ?assertEqual({at_least, 36},        ja_erl_utils_term:memory_usage({BigInteger, <<"1">>})),
+                ?assertEqual(20,                    ja_erl_utils_term:memory_usage(#{}                  )),
+                ?assertEqual({between, 40, 52},     ja_erl_utils_term:memory_usage(#{12 => <<"1234">>}  )),
+                ?assertEqual({at_least, 36},        ja_erl_utils_term:memory_usage(#{atom => BigInteger})),
+                ?assertEqual({at_least, 44},        ja_erl_utils_term:memory_usage(#{BigInteger => <<>>})),
+                ?assertEqual({between, 1000, 1044}, ja_erl_utils_term:memory_usage(LargeMap             )),
+                ?assertEqual(4,                     ja_erl_utils_term:memory_usage(self()               )),
+                ?assertEqual(24,                    ja_erl_utils_term:memory_usage(RemotePid            )),
+                ?assertEqual(4,                     ja_erl_utils_term:memory_usage(Port                 )),
+                ?assertEqual(20,                    ja_erl_utils_term:memory_usage(RemotePort           )),
+                ?assertEqual({between, 16, 28},     ja_erl_utils_term:memory_usage(erlang:make_ref()    )),
+                ?assertEqual({between, 28, 36},     ja_erl_utils_term:memory_usage(RemoteRef            )),
+                ?assertEqual({between, 40, 56},     ja_erl_utils_term:memory_usage(fun erlang:size/1    ))
+            end},
+            {"Tests for 8 bytes architecture", fun() ->
+                ok = meck:expect(ja_erl_utils, word_size, [{[], 8}]),
+                BigInteger = 1000000000000000000,
+                ?assertEqual(8,                     ja_erl_utils_term:memory_usage(5                    )),
+                ?assertEqual({at_least,  24},       ja_erl_utils_term:memory_usage(BigInteger           )),
+                ?assertEqual(8,                     ja_erl_utils_term:memory_usage(atom                 )),
+                ?assertEqual(24,                    ja_erl_utils_term:memory_usage(1.23                 )),
+                ?assertEqual({between, 24, 48},     ja_erl_utils_term:memory_usage(<<>>                 )),
+                ?assertEqual({between, 32, 56},     ja_erl_utils_term:memory_usage(<<1:1>>              )),
+                ?assertEqual({between, 32, 56},     ja_erl_utils_term:memory_usage(<<1, 2, 3, 4, 5>>    )),
+                ?assertEqual({between, 32, 56},     ja_erl_utils_term:memory_usage(<<"12345678">>       )),
+                ?assertEqual({between, 40, 64},     ja_erl_utils_term:memory_usage(<<1, 2, 3, 20000:41>>)),
+                ?assertEqual(8,                     ja_erl_utils_term:memory_usage([]                   )),
+                ?assertEqual(24,                    ja_erl_utils_term:memory_usage([1]                  )),
+                ?assertEqual({between, 80, 104},    ja_erl_utils_term:memory_usage([1.23, <<"12">>]     )),
+                ?assertEqual({at_least, 56},        ja_erl_utils_term:memory_usage([atom, BigInteger]   )),
+                ?assertEqual({at_least, 80},        ja_erl_utils_term:memory_usage([BigInteger, <<"1">>])),
+                ?assertEqual(72,                    ja_erl_utils_term:memory_usage("1234"               )),
+                ?assertEqual(16,                    ja_erl_utils_term:memory_usage({}                   )),
+                ?assertEqual(24,                    ja_erl_utils_term:memory_usage({1}                  )),
+                ?assertEqual({between, 72, 96},     ja_erl_utils_term:memory_usage({1.23, <<"12">>}     )),
+                ?assertEqual({at_least, 48},        ja_erl_utils_term:memory_usage({atom, BigInteger}   )),
+                ?assertEqual({at_least, 72},        ja_erl_utils_term:memory_usage({BigInteger, <<"1">>})),
+                ?assertEqual(40,                    ja_erl_utils_term:memory_usage(#{}                  )),
+                ?assertEqual({between, 80, 104},    ja_erl_utils_term:memory_usage(#{12 => <<"1234">>}  )),
+                ?assertEqual({at_least, 72},        ja_erl_utils_term:memory_usage(#{atom => BigInteger})),
+                ?assertEqual({at_least, 88},        ja_erl_utils_term:memory_usage(#{BigInteger => <<>>})),
+                ?assertEqual({between, 1992, 2080}, ja_erl_utils_term:memory_usage(LargeMap             )),
+                ?assertEqual(8,                     ja_erl_utils_term:memory_usage(self()               )),
+                ?assertEqual(40,                    ja_erl_utils_term:memory_usage(RemotePid            )),
+                ?assertEqual(8,                     ja_erl_utils_term:memory_usage(Port                 )),
+                ?assertEqual(40,                    ja_erl_utils_term:memory_usage(RemotePort           )),
+                ?assertEqual({between, 32, 48},     ja_erl_utils_term:memory_usage(erlang:make_ref()    )),
+                ?assertEqual({between, 48, 56},     ja_erl_utils_term:memory_usage(RemoteRef            )),
+                ?assertEqual({between, 80, 112},    ja_erl_utils_term:memory_usage(fun erlang:size/1    )),
+                ?assert(meck:validate([ja_erl_utils]))
+            end}
+        ]
+    }.

@@ -22,10 +22,11 @@
     functions of [ErlangTools](https://github.com/Juliusan/erlang-tools/)
     project.
     """.
--export([format/1, format/2]).
+-export([format/1, format/2, memory_usage/1]).
 -export_type([position/0, position_level/0, position_level_index/0, position_level_id/0]).
 
 -define(DEFAULT_SINGLE_INDENT_LENGTH, 2).
+-define(ANY_WORD_SIZE_GUARD(S), (S =:= 4 orelse S =:= 8)).
 
 
 
@@ -242,6 +243,56 @@ format(Term, Options) ->
     format(Term, 0, Options).
 
 
+%
+-doc """
+    Estimates how much memory (in bytes) is used to store Erlang's term `Term`.
+
+    This function is based on [an article about memory usage](https://www.erlang.org/doc/system/memory.html)
+    in Erlang's documentation, which describes `erts-8.0` system in OTP 19.0.
+    As the article itself is not very precise, this function may return:
+    - an integer, which means exact number of bytes as per article;
+    - `{at_least, Value}` - a term consumes at least `Value` number of bytes.
+    This is needed, because memory usage of large integers is not specified
+    accurately;
+    - `{between, From, To}` - a term consumes at least `From` and at most `To`
+    number of bytes. This is needed, because memory usage of binaries,
+    references, functions, etc... is specified as "`From`-`To` words".
+
+    The returned values are always divisible by word size of the system.
+
+    This function does not take into account:
+    - memory sharing of binaries (or other types) - each sub-term is counted
+      independently and then the values are added;
+    - memory, consumed by atom, node, process, port or function tables;
+    - memory, consumed by emulator internal data structures used for references;
+
+    The article does not fully cover bitstrings, which are not binaries. This
+    function assumes that bitstring consumes the least possible number of full
+    words. E.g., if word takes 8 bytes, then 1-64 bit length bitstrings consume
+    1 word (8 bytes), 65-128 bit length bitstrings - 2 words (16 bytes), etc.
+
+    The article doesn't specify exactly, what it means by function environment.
+    This function evaluates the term (list) returned by calling
+    `erlang:fun_info(Term, env)` using the same rules as for any other term.
+
+    Finally, calling `erts_debug:flat_size(Term)` or ` erts_debug:size(Term)`
+    will probably get more accurate result. However, these functions are
+    hidden, not documented and considered to be for internal use only.
+    """.
+-spec memory_usage(Term :: term()) ->
+    integer() |
+    {at_least, integer()} |
+    {between, integer(), integer()}.
+
+memory_usage(Term) ->
+    WordSize = ja_erl_utils:word_size(),
+    case memory_usage(Term, WordSize) of
+        Value when is_integer(Value) -> Value * WordSize;
+        {at_least, Value}            -> {at_least, Value * WordSize};
+        {between, From, To}          -> {between, From * WordSize, To * WordSize}
+    end.
+
+
 
 %------------------------------------------------------------------------------
 % Private functions
@@ -385,3 +436,77 @@ format_id_matches_level(Id,  [Id|_]        )                           -> true;
 format_id_matches_level(Id,  [{From, To}|_]) when From =< Id, Id =< To -> true;
 format_id_matches_level(Id,  [_|Others])                               -> format_id_matches_level(Id, Others);
 format_id_matches_level(Id,  NotAList)                                 -> format_id_matches_level(Id, [NotAList]).
+
+
+%%
+%% NOTE: this function returns number of words rather than bytes as memory_usage/1.
+%%
+memory_usage(I, 4) when is_integer(I), -134217729 < I, I < 134217728                   -> 1;
+memory_usage(I, 8) when is_integer(I), -576460752303423489 < I, I < 576460752303423488 -> 1;
+memory_usage(I, S) when is_integer(I), ?ANY_WORD_SIZE_GUARD(S)                         -> {at_least, 3};
+memory_usage(A, S) when is_atom(A), ?ANY_WORD_SIZE_GUARD(S)                     -> 1;  % Atom table is not considered
+memory_usage(F, 4) when is_float(F)                                             -> 4;
+memory_usage(F, 8) when is_float(F)                                             -> 3;
+memory_usage(B, S) when is_bitstring(B), ?ANY_WORD_SIZE_GUARD(S)                -> memory_usage_sum({between, 3, 6}, memory_usage_words_in_bitstring(B, S));
+memory_usage(L, S) when is_list(L), ?ANY_WORD_SIZE_GUARD(S)                     -> memory_usage_sum(1 + length(L), memory_usage_sum_list(L, S));
+memory_usage(T, S) when is_tuple(T), ?ANY_WORD_SIZE_GUARD(S)                    -> memory_usage_sum(2, memory_usage_sum_list(erlang:tuple_to_list(T), S));
+memory_usage(M, S) when is_map(M), ?ANY_WORD_SIZE_GUARD(S)                      -> memory_usage_map(M, S);
+memory_usage(P, S) when is_pid(P), node(P) =:= node(), ?ANY_WORD_SIZE_GUARD(S)  -> 1;
+memory_usage(P, 4) when is_pid(P), node(P) =/= node()                           -> 6;
+memory_usage(P, 8) when is_pid(P), node(P) =/= node()                           -> 5;
+memory_usage(P, S) when is_port(P), node(P) =:= node(), ?ANY_WORD_SIZE_GUARD(S) -> 1;
+memory_usage(P, S) when is_port(P), node(P) =/= node(), ?ANY_WORD_SIZE_GUARD(S) -> 5;
+memory_usage(R, 4) when is_reference(R), node(R) =:= node()                     -> {between, 4, 7};
+memory_usage(R, 4) when is_reference(R), node(R) =/= node()                     -> {between, 7, 9};
+memory_usage(R, 8) when is_reference(R), node(R) =:= node()                     -> {between, 4, 6};
+memory_usage(R, 8) when is_reference(R), node(R) =/= node()                     -> {between, 6, 7};
+memory_usage(F, S) when is_function(F), ?ANY_WORD_SIZE_GUARD(S)                 -> memory_usage_sum({between, 9, 13}, memory_usage_words_in_fun_env(F, S)).
+
+
+%
+memory_usage_words_in_bitstring(Bitstring, WordSize) ->
+    BitsInBitstring = erlang:bit_size(Bitstring),
+    BitsInWord = 8*WordSize,
+    (BitsInBitstring + BitsInWord - 1) div BitsInWord.
+
+
+%
+memory_usage_words_in_fun_env(Function, WordSize) ->
+    {env, Environment} = erlang:fun_info(Function, env),
+    memory_usage(Environment, WordSize).
+
+
+%
+memory_usage_map(Map, WordSize) ->
+    AddMemoryUsageFun = fun(Key, Value, Acc) ->
+        MemoryUsageKey   = memory_usage(Key, WordSize),
+        MemoryUsageValue = memory_usage(Value, WordSize),
+        MemoryUsageEntry = memory_usage_sum(MemoryUsageKey, MemoryUsageValue),
+        memory_usage_sum(MemoryUsageEntry, Acc)
+    end,
+    EntriesMemoryUsage = maps:fold(AddMemoryUsageFun, 0, Map),
+    case maps:size(Map) of
+        Size when Size =< 32 -> memory_usage_sum(5, EntriesMemoryUsage);
+        Size                 -> memory_usage_sum({between, erlang:floor(Size*1.6), erlang:ceil(Size*1.8)}, EntriesMemoryUsage)
+    end.
+
+
+%
+memory_usage_sum(Elem1, Elem2) ->
+    case lists:sort([Elem1, Elem2]) of
+        [I1,                I2                ] when is_integer(I1), is_integer(I2) -> I1+I2;
+        [I1,                {at_least, I2}    ] when is_integer(I1)                 -> {at_least, I1+I2};
+        [I1,                {between, F2, T2} ] when is_integer(I1)                 -> {between, I1+F2, I1+T2};
+        [{at_least, I1},    {at_least, I2}    ]                                     -> {at_least, I1+I2};
+        [{at_least, I1},    {between, F2, _T2}]                                     -> {at_least, I1+F2};
+        [{between, F1, T1}, {between, F2, T2} ]                                     -> {between, F1+F2, T1+T2}
+    end.
+
+
+%
+memory_usage_sum_list(List, WordSize) ->
+    AddMemoryUsageFun = fun(Term, Acc) ->
+        MemoryUsage = memory_usage(Term, WordSize),
+        memory_usage_sum(MemoryUsage, Acc)
+    end,
+    lists:foldl(AddMemoryUsageFun, 0, List).
